@@ -1,11 +1,213 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>它山石介绍</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  	<meta charset="UTF-8">
+
+    <title>它山石简介</title>
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="tools/normalize.css">
+    <link rel="stylesheet" href="css.css">
+
+    <style type="text/css">
+ 
+.container { max-width: 41em; padding: 0 1.5em }
+
+.header { background-color: #292f36 }
+.header+a { color: #fff; text-decoration: none; border: 0 }
+.header+a:focus { outline: 0; background-color: rgba(78,205,196,0.1) }
+.header-fixed {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    top: 0
+}
+
+.nav { margin-bottom: 0; float: right }
+.nav>li { display: inline-block }
+.nav>li>a { display: inline-block; padding: 1em; border: 0 }
+
+/* 淡化字体，并在小屏幕时隐藏 */
+.subdued { color: rgba(255,255,255,0.6); text-shadow: none; display: none; }
+a.subdued:hover { color: #fff }
+@media screen and (min-width:40em) {
+    .subdued { display: inline; margin-left: .5em }
+} 
+
+.brand {
+    display: inline-block;
+    text-decoration: none;
+    padding: 1em 0;
+    color: #fff;
+}
+.brand .forename { font-weight: bold; color: #4ecdc4 }
+.brand .surname  { font-weight: normal; color: #fff }
+
+
+
+.main { margin-top: 1.5em }
+
+.articleHeader { background-color: #4ecdc4; padding: 4em 0 3px 0 }
+.article-title { text-align: center }
+
+@media screen and (min-width:40em) {
+    .article-title { font-size: 90% }
+}
+@media screen and (min-width:50em) {
+    .article-title { font-size: 100% }
+}
+
+.article-title>h1 { line-height: 1; font-size: 1.5em; color: #fff; display: block }
+.article-title>p  { line-height: 1.25; font-size: 1.125em; color: #292f36; margin: 0 }
+
+
+.grid {  margin-left: -20px; }
+.grid:before,.grid:after { content: " "; display: table }
+.grid:after { clear: both }
+.grid-item { float: left; padding-left: 20px }
+
+.one-whole { width: 100% }
+.one-half  { width: 50% }
+
+
+.btn {
+    padding: .5em 1em;
+    margin: 0 0 1em 0;
+    display: inline-block;
+    border-radius: .25em;
+    text-align: center;
+    color: #6f6f6f;
+    border: 1px solid rgba(41,47,54,0.2);
+    background-color: #eee;
+    text-decoration: none;
+}
+.btn:hover,.btn:focus,.btn:visited {
+    background-color: #f1ebeb;
+    text-decoration: none
+}
+.btn-secondary { color: #fff; background-color: #ff6b6b; display: block }
+.btn-secondary:hover,.btn-secondary:focus,.btn-secondary:visited { background-color: #ff6b6b; }
+.btn-plain,.btn-plain:hover {
+    background: 0;
+    border: 0;
+}
+
+    </style>
+
 </head>
 
 <body>
 
+<div class="github">
+  <a href="https://waitiwnd.github.com">Fork me on GitHub</a>
+</div>
+
+<header id="header" class="header header-fixed">
+    <div class="container" >
+        <nav>
+            <ul class="nav subdued">
+                <li>
+                    <a class="subdued" href="#">TSS</a>
+                </li>
+                <li>
+                    <a class="subdued" href="#">DMS</a>
+                </li>
+                <li>
+                    <a class="subdued" href="#">tssJS</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <a href="http://waitwind.github.com" class="brand">
+            <b class="forename">它山石</b><b class="surname">应用基础平台</b>
+        </a>
+    </div>
+</header>
+
+<article>
+<header class="articleHeader">
+    <div class="container article-title">
+        <h1>它山之石，可以攻玉；它山之石，可以试错。</h1>
+        <p>它山石，让应用开发更简单。</p>
+    </div>
+</header>
+
+<div class="container block main" role="main" >
+
+<h2>它山石 是什么？</h2>
+
+<p>它山石（简称TSS）是一个开源的应用基础平台，专注于提供高效开发各类应用软件所必需的技术框架及常用功能组件，在它山石框架和组件的基础上，应用开发者可以直接专注于业务逻辑本身的开发，减轻开发工作量，同时还能把不同的应用无缝衔接集成，自动实现统一用户管理和资源授权、单点登陆（SSO）、数据集中分析、内容聚合展示、应用集成一体。 目前框架包含的常用功能组件有：</p>
+
+<ul class="live">
+  <li>它山石技术框架，包括后端框架和前端框架</li>
+  <li>统一用户管理（UM）</li>
+  <li>门户管理（Portal）</li>
+  <li>内容管理（CMS）</li>
+  <li>数据管理（DM</li>
+  <li>对象缓存管理</li>
+  <li>系统参数管理</li>
+  <li>系统日志管理</li>
+  <li>定时服务</li>
+  <li>异步消息处理</li>
+</ul>
+
+ 
+
+<h2>License</h2>
+<p>
+    Licensed under the <a href="http://www.opensource.org/licenses/gpl-license.php">GPL License</a>.
+</p>
+
+<h2>下载</h2>
+<div class="downloads" style="margin-bottom:1em">
+    <div class="grid">
+        <div class="grid-item one-half">
+        	<a class="btn btn-secondary btn--full" href="https://waitwind.github.com/">
+        		Development <span class="subdued">(3.2MB)</span>
+        	</a>
+        </div>
+        <div class="grid-item one-half">
+        	<a class="btn btn-secondary btn--full" href="https://waitwind.github.com">Production 
+        		<span class="subdued">(1.2MB)</span>
+        	</a>
+        </div>
+    </div>
+</div>
+
+</div>
+<a class="btnToTop btn btn-plain" href="#" id="btnToTop">Top <i class="iconToTop"></i></a>
+</article>
+
+
+<script src="tools/headroom.js"></script>
+<script>
+(function() {
+    var header = new Headroom(document.querySelector("#header"), {
+        tolerance: 5,
+        offset : 205,
+        classes: {
+          initial : "slide",
+          pinned  : "slide-reset",
+          unpinned: "hideTop"
+        }
+    });
+    header.init();
+
+    var btnToTopHeadroom = new Headroom(document.getElementById("btnToTop"), {
+        tolerance : 0,
+        offset : 500,
+        classes : {
+            initial : "slide",
+            pinned  : "slide-reset",
+            unpinned: "hideBottom"
+        }
+    });
+
+    btnToTopHeadroom.init();
+
+}());
+</script>
 </body>
 </html>

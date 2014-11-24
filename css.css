@@ -1,0 +1,160 @@
+@media screen and (min-width:40em) {
+    body { font-size: 100% }
+}
+@media screen and (min-width:50em) {
+    body { font-size: 108% }
+} 
+
+pre,code {
+    font-family: Consolas,Monaco,'Andale Mono',monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    color: #f8f8f2;
+    background: #1e2328
+}
+pre {
+    overflow: auto;
+    padding: 1em;
+    margin: 1.5em 0
+}
+code {
+    font-size: .9em
+}
+@media screen and (min-width:50em) {
+    code {
+        font-size: .8em
+    }
+}
+ 
+/* border-box: 内边距和边框不再会增加它的宽度 */
+*,::after,::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.btnToTop { display: none; position: fixed; left: 0; bottom: 0; font-size: .9em; }
+@media screen and (min-width:50em) {
+    .btnToTop { display: block }
+}
+@media screen and (min-width:65em) {
+    .btnToTop { left: .5em }
+}
+
+.iconToTop:before {
+    font-size: .9em;
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    line-height: 1;
+    content: "\25B2"
+}
+
+.slide {
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear
+}
+.slide-reset {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0)
+}
+.hideTop {
+    -webkit-transform: translateY(-4em);
+    -ms-transform: translateY(-4em);
+    transform: translateY(-4em)
+}
+.hideBottom {
+    -webkit-transform: translateY(4em);
+    -ms-transform: translateY(4em);
+    transform: translateY(4em)
+}
+
+/* fork me on github */
+.github {
+  background-color: #a00;
+  overflow: hidden;
+  white-space: nowrap;
+  /* top left corner */
+  position: absolute;
+  left: -50px;
+  top: 40px;
+  z-index: 9999;
+  /* 45 deg ccw rotation */
+  -webkit-transform: rotate(-45deg);
+     -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+       -o-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  /* shadow */
+  -webkit-box-shadow: 0 0 10px #888;
+     -moz-box-shadow: 0 0 10px #888;
+          box-shadow: 0 0 10px #888;
+}
+.github a {
+  border: 1px solid #faa;
+  color: #fff;
+  display: block;
+  font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 1px 0;
+  padding: 10px 35px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 0 5px #444;
+}
+
+/* ul li 样式 */
+.live > li {
+  list-style: none;
+  position: relative;
+  padding: 0 0 0 2em;
+  margin: 0 0 5px 10px;
+  -webkit-transition: .12s;
+          transition: .12s;
+}
+.live > li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '\2022';
+  color: #FFF;
+  font-size: 2em;
+  opacity: .5;
+  line-height: .75;
+  -webkit-transition: .5s;
+          transition: .5s;
+}
+.live > li:hover {
+  color: #FFF;
+}
+.live > li:hover::before {
+  -webkit-transform: scale(2);
+      -ms-transform: scale(2);
+          transform: scale(2);
+  opacity: 1;
+  text-shadow: 0 0 4px;
+  -webkit-transition: .1s;
+          transition: .1s;
+}
+
+.live {
+  width: 80%;
+  text-align: left;
+  vertical-align: top;
+  color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  background-image: -webkit-radial-gradient(circle, #3c3b52 0%, #252233 80%);
+  background-image: radial-gradient(circle, #3c3b52 0%, #252233 80%);
+}
