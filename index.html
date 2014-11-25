@@ -11,19 +11,20 @@
     <link rel="stylesheet" href="css.css">
 
     <style type="text/css">
+
+body {
+	font-size: 20px;
+}
+h2 {
+	font-size: 20px;
+}
  
 .container { max-width: 41em; padding: 0 1.5em }
 
 .header { background-color: #292f36 }
 .header+a { color: #fff; text-decoration: none; border: 0 }
 .header+a:focus { outline: 0; background-color: rgba(78,205,196,0.1) }
-.header-fixed {
-    position: fixed;
-    z-index: 10;
-    right: 0;
-    left: 0;
-    top: 0
-}
+.header-fixed { position: fixed; z-index: 10; right: 0; left: 0; top: 0 }
 
 .nav { margin-bottom: 0; float: right }
 .nav>li { display: inline-block }
@@ -36,13 +37,8 @@ a.subdued:hover { color: #fff }
     .subdued { display: inline; margin-left: .5em }
 } 
 
-.brand {
-    display: inline-block;
-    text-decoration: none;
-    padding: 1em 0;
-    color: #fff;
-}
-.brand .forename { font-weight: bold; color: #4ecdc4 }
+.brand { display: inline-block; text-decoration: none; padding: 1em 0; color: #fff; }
+.brand .forename { font-weight: bold; font-size: 22px;color: #4ecdc4 }
 .brand .surname  { font-weight: normal; color: #fff }
 
 
@@ -94,6 +90,37 @@ a.subdued:hover { color: #fff }
     border: 0;
 }
 
+p {
+	font-size: 15px;
+	text-indent:30px;
+}
+
+blockquote {
+	font-size: 15px;
+	background:#f9f9f9;
+	border-left:10px solid #ccc;
+	margin:1.5em 10px;
+	padding:.5em 10px;
+	quotes:"\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+	color:#ccc;
+	content:open-quote;
+	font-size:3em;
+	line-height:.1em;
+	margin-right:.25em;
+	vertical-align:-.4em;
+}
+blockquote p {
+	display:inline;
+}
+
+.commonList {
+	font-size: 15px;
+	list-style: circle;
+	padding-left: 30px; 
+}
+
     </style>
 
 </head>
@@ -101,7 +128,7 @@ a.subdued:hover { color: #fff }
 <body>
 
 <div class="github">
-  <a href="https://waitiwnd.github.com">Fork me on GitHub</a>
+  <a href="https://github.com/waitwind">Fork me on GitHub</a>
 </div>
 
 <header id="header" class="header header-fixed">
@@ -141,19 +168,126 @@ a.subdued:hover { color: #fff }
 <p>它山石（简称TSS）是一个开源的应用基础平台，专注于提供高效开发各类应用软件所必需的技术框架及常用功能组件，在它山石框架和组件的基础上，应用开发者可以直接专注于业务逻辑本身的开发，减轻开发工作量，同时还能把不同的应用无缝衔接集成，自动实现统一用户管理和资源授权、单点登陆（SSO）、数据集中分析、内容聚合展示、应用集成一体。 目前框架包含的常用功能组件有：</p>
 
 <ul class="live">
-  <li>它山石技术框架，包括后端框架和前端框架</li>
-  <li>统一用户管理（UM）</li>
-  <li>门户管理（Portal）</li>
-  <li>内容管理（CMS）</li>
-  <li>数据管理（DM</li>
-  <li>对象缓存管理</li>
-  <li>系统参数管理</li>
-  <li>系统日志管理</li>
-  <li>定时服务</li>
-  <li>异步消息处理</li>
+  <li><a href="#p1">它山石技术框架，包括后端框架和前端框架</a></li>
+  <li><a href="#p2">统一用户管理（UM）</a></li>
+  <li><a href="#p3">门户管理（Portal）</a></li>
+  <li><a href="#p4">内容管理（CMS）</a></li>
+  <li><a href="#p5">数据管理（DM)</a></li>
+  <li><a href="#p6">对象缓存管理</a></li>
+  <li><a href="#p7">系统参数管理</a></li>
+  <li><a href="#p8">系统日志管理</a></li>
+  <li><a href="#p9">定时服务</a></li>
+  <li><a href="#p10">异步消息处理</a></li>
 </ul>
 
- 
+<h2>产生背景</h2>
+<p>
+行业信息化对于业务系统开发及整合（应用整合、数据整合）的新需求，需要有这样的体系架构:<b>既能支持组件化的开发，又能对既有异构系统提供有效的整合，并对业务建模、开发、整合、部署、运营数据分析提供一致性的工具与平台。</b>
+</p>
+
+<h2>它山石技术框架</h2>
+<p id="p1">
+主要开发语言为Java、Javascript，数据库支持MySQL、H2、Oracle。其中后端框架采用JPA2.0 + Spring，前端为HTML5 + JS + CSS3，前后台交互使用AJAX。
+
+<ul class="commonList">
+	<li>持久层采用Hibernate，实现对业务对象进行持久化和常用查询，同时提供自定义的数据库连接池，允许同时对多数据源进行访问。	</li>
+	<li>Spring提供IOC容器及AOP机制，对业务操作对象的生成、依赖注入、事务、权限过滤、日志搜集、缓存等进行统一管理。	</li>
+	<li>Spring MVC将后端服务发布成web服务，使用restful风格来。	</li>
+	<li>Freemarker提供模板引擎解析功能	</li>
+	<li>前后端交换一律采用AJAX，数据格式同时支持XML和JSON	</li>
+	<li>前端框架采用独立的tssJS框架，提供DOM操作、事件处理、AJAX交互、XML数据处理等核心封装、统一的界面样式布局，及菜单、Tree、Grid、Form等常用组件。	</li>
+</ul>
+</p>
+
+<blockquote>
+<b>框架特色：</b><br/>
+1、技术框架较少采用各类流行但体量庞大的框架，提供了很多原创的替代解决方案，目的是做到最大限度的灵活性，最大程度的实现易扩展、易维护. <br/>
+2、前后端充分解耦合，开发时各自独立进行、互不依赖，只需彼此约定好数据格式，前端直接依据模拟数据文件进行开发，待后端开发好正式的接口服务，前端将<b>数据服务地址</b>由模拟文件替换为后端正式的服务地址即可.
+</blockquote>
+
+<h2 id="p2"> 统一用户管理（UM）</h2>
+<p>
+统一用户管理（UM）是建立统一的用户及资源管理模型和体系，建立一种基于角色的统一授权机制，通过统一接口为其他功能模块提供用户授权服务，以及提供单点登陆的解决方案。
+</p>
+<pre>
+UM主要功能点：
+
+- 用户组织结构信息管理：组织分两种类型，主用户组对应纵向的组织结构，辅助组则对应横向的
+  跨组织结构，基于这两种组织机构，可方便的进行用户信息管理及设置权限。提供用户同步服务，
+  支持LDAP、MySQL、Oracle等数据源。
+
+- 应用资源管理：为各业务系统提供应用和资源注册服务，以便资源对角色的授权进行统一管理。
+
+- 角色权限管理：维护角色对用户及用户组的关系，维护角色对资源的授权信息。在UM里管理员可以
+  对权限进行集中管理，各业务系统可以通过UM提供的权限服务接口来判断当前登录用户能否操作某
+  个资源的某项功能。管理员还可以多个角度查看用户、组织、角色、资源、操作之间的关联信息。
+
+- 权限转授管理：允许用户创建转授策略将自己名下拥有的角色转授给其它用户或用户组。
+
+- 身份验证服务：提供多种认证方式（数据库、LDAP、操作系统、CA证书等等）。
+</pre>
+
+<h2 id="p3"> 门户管理（Portal）</h2>
+<p>
+对最终用户而言，Portal就是一个到所有计算资源的统一入口，以及从各种不同来源或不同应用系统取得的各式各样的数据，并且将这些数据组合展示的呈现平台。TSS portal模块主要功能有<b>内容聚集和展示、应用程序访问和集成、数据搜索、个性化定制、安全管理等</b>，通过TSS portal将各种应用系统、数据源、以及互联网资源等，统一集成到单一门户之下，同时提供统一的访问入口，并在各个应用系统之间实现单点登录；通过UM的授权服务，针对不同的用户对门户下的各个组成部分进行相应的角色权限过滤，实现个性化门户，用户还可根据自己喜好对门户的内容、风格等进行定制，为用户提供丰富的体验。
+</p>
+<pre>
+Portal主要功能点:
+
+- 门户结构、门户主题、门户生成、门户发布
+- 门户导航，结合门户机制，实现门户页面之间灵活跳转。
+- 门户组件，提供通用的portlet、布局器、修饰器等门户组件，以用来快速开发门户。
+</pre>
+
+<h2 id="p4"> 内容管理（CMS）</h2>
+<p>
+内容管理（CMS）是管理企业信息资源的管理平台，主要是将企业的信息资源与网络办公有机地协调在一起，提供一个综合管理网站上各种栏目的通用工具，包括栏目的制作，新闻、产品、文档、下载等等。TSS的CMS模块能与TSS的Portal模块无缝衔接，通过模板引擎，由Portal模块完成对CMS下各类内容的最终发布与展示。内容的创作人员、编辑人员、发布人员使用内容管理系统来提交、修改、审批、发布内容。这里指的“内容”可能包括文档、图片、数据、视频等一切想要发布到Web的信息。
+</p>
+<pre>
+CMS主要功能点：
+
+- 站点栏目维护，支持栏目分发、置顶等操作
+- 内容（文字、图片、文档、其他附件等）维护
+- 全文检索服务
+</pre>
+
+<h2 id="p5"> 数据管理（DM）</h2>
+<p>
+业务数据产生后是独立于业务系统的，只要了解其数据结构，各类数据完全可以交由一个统一的平台进行分析挖掘，只要提供必要的数据源信息，且不限数据库类型（MyQSL、Oralce、SQLserver,甚至NoSQL数据库）。TSS的DM模块正是基于这样的设想，提供可以快速开发报表的功能。使用者只要会写必要的查询语句（SQL等），就可以轻松完成报表开发，并有丰富的各类统计图表模板可供展示调用。DM使的企业管理者能够快速、准确地获取各类重要业务数据。各类分析完备的数据能够为企业管理者在第一时间做出市场决策提供强有力支持和保障。
+</p>
+<pre>
+DM的主要功能点：
+
+- 数据报表创建与展示
+- 权限控制，根据用户所处组织结构及拥有的角色配置来控制其所能浏览的数据范围
+- 定时邮件发送报表数据
+- 数据分享及定制
+</pre>
+
+<h2 id="p6"> 对象缓存管理 </h2>
+<p>
+对象缓存管理模块为系统的性能提供了有力保障。开发者可以基于该功能，方便的应用多数据源连接池、异步功能所需的线程池、各种生命周期的数据对象缓存池等。
+</p>
+
+<h2 id="p7"> 系统参数管理 </h2>
+<p>
+系统参数管理模块支持配置各类系统级或应用级的参数信息，支持简单参数、列表参数、树形参数等多种形式，包括基础参数信息、定时配置、下拉参数、Key/Value式的数据存储等，都可以在本模块里快速实现，并提供了JAVA和JSON两种读取方式，使用便捷，极大增强了系统的可配置性及灵活性。
+</p>
+
+<h2 id="p8"> 系统日志管理 </h2>
+<p>
+系统日志详细记录了系统里各种操作的发生的时间、操作人、机器地址及浏览器类型、操作内容等，方便事故追责，为系统的安全提供了有力保障。
+</p>
+
+<h2 id="p9"> 定时服务 </h2>
+<p>
+提供各类定时服务：定时报表、定时邮件发送、定时同步数据、定时创建索引等。
+</p>
+
+<h2 id="p10"> 异步消息处理 </h2>
+</p>
+支持对业务逻辑进行异步处理。
+</p>
 
 <h2>License</h2>
 <p>

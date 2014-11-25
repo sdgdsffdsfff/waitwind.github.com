@@ -18,11 +18,11 @@ pre {
     padding: 1em;
     margin: 1.5em 0
 }
-code {
+code, pre {
     font-size: .9em
 }
 @media screen and (min-width:50em) {
-    code {
+    code, pre {
         font-size: .8em
     }
 }
@@ -112,7 +112,12 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
 }
 
 /* ul li 样式 */
+.live > li > a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+}
 .live > li {
+  font-size: 17px;
   list-style: none;
   position: relative;
   padding: 0 0 0 2em;
@@ -126,13 +131,13 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
   left: 0;
   content: '\2022';
   color: #FFF;
-  font-size: 2em;
+  font-size: 1.5em;
   opacity: .5;
   line-height: .75;
   -webkit-transition: .5s;
           transition: .5s;
 }
-.live > li:hover {
+.live > li > a:hover {
   color: #FFF;
 }
 .live > li:hover::before {
@@ -146,7 +151,7 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
 }
 
 .live {
-  width: 80%;
+  width: 95%;
   text-align: left;
   vertical-align: top;
   color: rgba(255, 255, 255, 0.5);
