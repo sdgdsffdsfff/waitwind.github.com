@@ -14,12 +14,13 @@
 
 body {
 	font-size: 20px;
+	font-family: "Microsoft Yahei","Hiragino Sans GB","冬青黑体简体中文 w3",STXihei, "华文细黑","微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif
 }
 h2 {
 	font-size: 20px;
 }
  
-.container { max-width: 41em; padding: 0 1.5em }
+.container { max-width: 48em; padding: 0 1.0em }
 
 .header { background-color: #292f36 }
 .header+a { color: #fff; text-decoration: none; border: 0 }
@@ -135,15 +136,9 @@ blockquote p {
     <div class="container" >
         <nav>
             <ul class="nav subdued">
-                <li>
-                    <a class="subdued" href="#">TSS</a>
-                </li>
-                <li>
-                    <a class="subdued" href="#">DMS</a>
-                </li>
-                <li>
-                    <a class="subdued" href="#">tssJS</a>
-                </li>
+                <li><a class="subdued" href="#">TSS</a></li>
+                <li><a class="subdued" href="#">DMS</a></li>
+                <li><a class="subdued" href="#">tssJS</a></li>
             </ul>
         </nav>
         
@@ -157,7 +152,7 @@ blockquote p {
 <header class="articleHeader">
     <div class="container article-title">
         <h1>它山之石，可以攻玉；它山之石，可以试错。</h1>
-        <p>它山石，让应用开发更简单。</p>
+        <p>它山石，让应用开发更简单、更高效</p>
     </div>
 </header>
 
@@ -165,10 +160,10 @@ blockquote p {
 
 <h2>它山石 是什么？</h2>
 
-<p>它山石（简称TSS）是一个开源的应用基础平台，专注于提供高效开发各类应用软件所必需的技术框架及常用功能组件，在它山石框架和组件的基础上，应用开发者可以直接专注于业务逻辑本身的开发，减轻开发工作量，同时还能把不同的应用无缝衔接集成，自动实现统一用户管理和资源授权、单点登陆（SSO）、数据集中分析、内容聚合展示、应用集成一体。 目前框架包含的常用功能组件有：</p>
+<p>它山石（简称TSS）是一个开源的应用基础平台，专注于提供高效开发各类应用软件所必需的技术框架及常用功能组件，我们的目标是打造成既能支持组件化的开发，又能对既有异构系统提供有效的整合，并对业务建模、开发、整合、部署、运营数据分析提供一致性的工具与平台。在它山石框架和组件的基础上，应用开发者可以直接专注于业务逻辑本身的开发，减轻开发工作量，同时还能把不同的应用无缝衔接集成，自动实现统一用户管理和资源授权、单点登陆（SSO）、数据集中分析、内容聚合展示、应用集成一体。 可快速完成业务系统开发及整合（应用整合、数据整合）目前框架包含的常用功能组件有：</p>
 
 <ul class="live">
-  <li><a href="#p1">它山石技术框架，包括后端框架和前端框架</a></li>
+  <li><a href="#p1">它山石技术框架</a></li>
   <li><a href="#p2">统一用户管理（UM）</a></li>
   <li><a href="#p3">门户管理（Portal）</a></li>
   <li><a href="#p4">内容管理（CMS）</a></li>
@@ -180,29 +175,25 @@ blockquote p {
   <li><a href="#p10">异步消息处理</a></li>
 </ul>
 
-<h2>产生背景</h2>
-<p>
-行业信息化对于业务系统开发及整合（应用整合、数据整合）的新需求，需要有这样的体系架构:<b>既能支持组件化的开发，又能对既有异构系统提供有效的整合，并对业务建模、开发、整合、部署、运营数据分析提供一致性的工具与平台。</b>
-</p>
-
+<br>
 <h2>它山石技术框架</h2>
 <p id="p1">
-主要开发语言为Java、Javascript，数据库支持MySQL、H2、Oracle。其中后端框架采用JPA2.0 + Spring，前端为HTML5 + JS + CSS3，前后台交互使用AJAX。
+主要开发语言为Java、JavaScript，数据库支持MySQL、H2、Oracle。其中后端框架底层采用JPA2.0 + Spring，前端为HTML5 + JS + CSS3，前后台交互使用AJAX。
 
 <ul class="commonList">
-	<li>持久层采用Hibernate，实现对业务对象进行持久化和常用查询，同时提供自定义的数据库连接池，允许同时对多数据源进行访问。	</li>
-	<li>Spring提供IOC容器及AOP机制，对业务操作对象的生成、依赖注入、事务、权限过滤、日志搜集、缓存等进行统一管理。	</li>
-	<li>Spring MVC将后端服务发布成web服务，使用restful风格来。	</li>
-	<li>Freemarker提供模板引擎解析功能	</li>
-	<li>前后端交换一律采用AJAX，数据格式同时支持XML和JSON	</li>
-	<li>前端框架采用独立的tssJS框架，提供DOM操作、事件处理、AJAX交互、XML数据处理等核心封装、统一的界面样式布局，及菜单、Tree、Grid、Form等常用组件。	</li>
+	<li>前端框架采用独立的tssJS框架，提供常用DOM操作、事件处理、AJAX交互、XML数据处理等核心封装、统一的界面样式布局，及菜单、Tree、Grid、Form等常用组件。	</li>
+  <li>前后端交换一律采用AJAX，数据格式同时支持XML和JSON  </li>
+  <li>使用Freemarker作为模板解析引擎，应用于门户、数据图表等支持模板化二次开发的模块。</li>
+  <li>Spring MVC将后端服务发布成web服务，使用restful风格来。 </li>
+  <li>Spring提供IOC容器及AOP机制，对业务操作对象的生成、依赖注入、事务、权限过滤、日志搜集、缓存等进行统一管理。</li>
+  <li>持久层采用JPA2.0，实现对业务对象进行持久化和常用查询。支持配置自定义的数据源，可同时对多数据源进行访问操作。  </li>
 </ul>
 </p>
 
 <blockquote>
 <b>框架特色：</b><br/>
-1、技术框架较少采用各类流行但体量庞大的框架，提供了很多原创的替代解决方案，目的是做到最大限度的灵活性，最大程度的实现易扩展、易维护. <br/>
-2、前后端充分解耦合，开发时各自独立进行、互不依赖，只需彼此约定好数据格式，前端直接依据模拟数据文件进行开发，待后端开发好正式的接口服务，前端将<b>数据服务地址</b>由模拟文件替换为后端正式的服务地址即可.
+1、较少采用各类流行但体量庞大的框架，更多使用了原创的替代解决方案，精致实用，易扩展、易维护。 <br/>
+2、前后端充分解耦合，开发时各自独立进行、互不依赖，只需彼此约定好数据格式，前端直接依据模拟数据文件进行开发，待后端开发好正式的接口服务，前端将<b>数据服务地址</b>由模拟文件替换为后端正式的服务地址。
 </blockquote>
 
 <h2 id="p2"> 统一用户管理（UM）</h2>
