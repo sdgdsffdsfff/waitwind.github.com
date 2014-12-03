@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DMS介绍</title>
+	<style type="text/css">
+ 
+		* {
+			margin: 0; 
+			padding: 0;
+		}
+		body {
+			background: #ccc; 
+			font-family: arial, verdana, tahoma;
+		}
+ 
+		.accordian {
+			width: 960px; height: 712px;
+			overflow: hidden;	
+			margin: 100px auto;
+			box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+			-webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+			-moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+		}
+		.accordian ul { width: 2000px; }
+		.accordian li {
+			position: relative;
+			display: block;
+			float: left;
+			width: 190px;
+			border-left: 1px solid #888;
+			
+			box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+			-webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+			-moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+			
+			transition: all 0.5s;
+			-webkit-transition: all 0.5s;
+			-moz-transition: all 0.5s;
+		}
+
+		.accordian ul:hover li { width: 40px; }
+		.accordian ul li:hover { width: 640px; }
+		.accordian li img { display: block; }
+
+		.image_title {
+			background: rgba(0, 0, 0, 0.5);
+			position: absolute; left: 0; bottom: 0;	
+			width: 800px;	
+		}
+		.image_title a {
+			display: block; padding: 20px;
+			font-size: 16px; color: #fff; text-decoration: none;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="accordian">
+	<ul>
+		<li>
+			<div class="image_title">
+				<a href="#">KungFu Panda</a>
+			</div>
+			<a href="#">
+				<img src="pic/btr1.png"/>
+			</a>
+		</li>
+		<li>
+			<div class="image_title">
+				<a href="#">Toy Story 2</a>
+			</div>
+			<a href="#">
+				<img src="pic/wms1.png"/>
+			</a>
+		</li>
+		<li>
+			<div class="image_title">
+				<a href="#">Wall-E</a>
+			</div>
+			<a href="#">
+				<img src="pic/btr2.png"/>
+			</a>
+		</li>
+		<li>
+			<div class="image_title">
+				<a href="#">Up</a>
+			</div>
+			<a href="#">
+				<img src="pic/btr3.png"/>
+			</a>
+		</li>
+		<li>
+			<div class="image_title">
+				<a href="#">Cars 2</a>
+			</div>
+			<a href="#">
+				<img src="pic/portal3.png"/>
+			</a>
+		</li>
+	</ul>
+</div>
+		
+</body>
+</html>
