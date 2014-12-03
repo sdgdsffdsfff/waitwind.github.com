@@ -10,7 +10,8 @@ pre,code {
     white-space: pre;
     word-spacing: normal;
     color: #f8f8f2;
-    background: #1e2328
+    background: #1e2328;
+    border-radius: 5px;
 }
 pre {
     overflow: auto;
@@ -25,6 +26,11 @@ code, pre {
         font-size: .8em
     }
 }
+
+p {
+  font-size: 16px;
+  text-indent:30px;
+}
  
 /* border-box: 内边距和边框不再会增加它的宽度 */
 *,::after,::before {
@@ -36,6 +42,26 @@ code, pre {
 h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
     margin-top: 0;
     margin-bottom: 16px;
+}
+
+.btn {
+    padding: .5em 1em;
+    margin: 0 0 1em 0;
+    display: inline-block;
+    border-radius: .25em;
+    text-align: center;
+    color: #6f6f6f;
+    border: 1px solid rgba(41,47,54,0.2);
+    background-color: #eee;
+    text-decoration: none;
+}
+.btn:hover,.btn:focus,.btn:visited {
+    background-color: #f1ebeb;
+    text-decoration: none
+}
+.btn-plain,.btn-plain:hover {
+    background: 0;
+    border: 0;
 }
 
 .btnToTop { display: none; position: fixed; left: 0; bottom: 0; font-size: .9em; }
@@ -151,7 +177,7 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
 }
 
 .live {
-  width: 95%;
+  width: 70%;
   text-align: left;
   vertical-align: top;
   color: rgba(255, 255, 255, 0.5);
@@ -163,3 +189,88 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
   background-image: -webkit-radial-gradient(circle, #3c3b52 0%, #252233 80%);
   background-image: radial-gradient(circle, #3c3b52 0%, #252233 80%);
 }
+
+/* 手风琴 */
+.accordian {
+  width: 960px; height: 712px;
+  overflow: hidden; 
+  margin: 10px auto;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+}
+.accordian ul { width: 2000px; }
+.accordian li {
+  position: relative;
+  display: block;
+  float: left;
+  width: 190px;
+  border-left: 1px solid #888;
+  
+  box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+  
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+.accordian ul:hover li { width: 40px; }
+.accordian ul li:hover { width: 640px; }
+.accordian li img { display: block; }
+
+.accordian h2 {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute; left: 0; bottom: 0; 
+  width: 800px; 
+  padding: 20px;
+  font-size: 16px; color: #fff; text-decoration: none;
+}
+
+
+body {
+  font-size: 20px;
+  font-family: "Microsoft Yahei","Hiragino Sans GB","冬青黑体简体中文 w3",STXihei, "华文细黑","微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif
+}
+h2 {
+  font-size: 20px;
+}
+ 
+.container { max-width: 48em; padding: 0 .5em }
+
+.header { background-color: #292f36 }
+.header+a { color: #fff; text-decoration: none; border: 0 }
+.header+a:focus { outline: 0; background-color: rgba(78,205,196,0.1) }
+.header-fixed { position: fixed; z-index: 10; right: 0; left: 0; top: 0 }
+
+.nav { margin-bottom: 0; float: right }
+.nav>li { display: inline-block }
+.nav>li>a { display: inline-block; padding: 1em; border: 0 }
+
+/* 淡化字体，并在小屏幕时隐藏 */
+.subdued { color: rgba(255,255,255,0.6); text-shadow: none; display: none; }
+a.subdued:hover { color: #fff }
+@media screen and (min-width:40em) {
+    .subdued { display: inline; margin-left: .5em }
+} 
+
+.brand { display: inline-block; text-decoration: none; padding: 1em 0; color: #fff; }
+.brand .forename { font-weight: bold; font-size: 22px;color: #4ecdc4 }
+.brand .surname  { font-weight: normal; color: #fff }
+
+
+.main { margin-top: 1.5em }
+
+.articleHeader { background-color: #4ecdc4; padding: 4em 0 3px 0 }
+.article-title { text-align: center }
+
+@media screen and (min-width:40em) {
+    .article-title { font-size: 90% }
+}
+@media screen and (min-width:50em) {
+    .article-title { font-size: 100% }
+}
+
+.article-title>h1 { line-height: 1; font-size: 1.5em; color: #fff; display: block }
+.article-title>p  { line-height: 1.25; font-size: 1.125em; color: #292f36; margin: 0 }
