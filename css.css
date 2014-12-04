@@ -192,7 +192,7 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
 
 /* 手风琴 */
 .accordian {
-  width: 960px; height: 712px;
+  width: 960px; height: 650px;
   overflow: hidden; 
   margin: 10px auto;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
@@ -223,8 +223,8 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
 .accordian h2 {
   background: rgba(0, 0, 0, 0.5);
   position: absolute; left: 0; bottom: 0; 
-  width: 800px; 
-  padding: 20px;
+  width: 600px; 
+  padding: 12px;
   font-size: 16px; color: #fff; text-decoration: none;
 }
 
@@ -274,3 +274,16 @@ a.subdued:hover { color: #fff }
 
 .article-title>h1 { line-height: 1; font-size: 1.5em; color: #fff; display: block }
 .article-title>p  { line-height: 1.25; font-size: 1.125em; color: #292f36; margin: 0 }
+
+
+/* 下载按钮样式 */
+.grid {  margin-left: -20px; }
+.grid:before,.grid:after { content: " "; display: table }
+.grid:after { clear: both }
+.grid-item { float: left; padding-left: 20px }
+
+.one-whole { width: 100% }
+.one-half  { width: 50% }
+
+.btn-secondary { color: #fff; background-color: #ff6b6b; display: block }
+.btn-secondary:hover,.btn-secondary:focus,.btn-secondary:visited { background-color: #ff6b6b; }

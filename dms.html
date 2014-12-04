@@ -35,41 +35,78 @@
 <article>
 <header class="articleHeader">
     <div class="container article-title">
-        <h1>它山之石，可以攻玉；它山之石，可以试错。</h1>
-        <p>它山石，让应用开发更简单、更高效</p>
+        <h1>让SQL即刻变报表，让数据来敲门</h1>
     </div>
 </header>
 
 <div class="container block main" role="main" >
 
-<h2>它山石 是什么？</h2>
+<h2>DMS 是什么？</h2>
 
-<p>它山石（简称TSS）是一个开源的应用基础平台，专注于提供高效开发各类应用软件所必需的技术框架及常用功能组件，我们的目标是打造成既能支持组件化的开发，又能对既有异构系统提供有效的整合，并对业务建模、开发、整合、部署、运营数据分析提供一致性的工具与平台。在它山石框架和组件的基础上，应用开发者可以直接专注于业务逻辑本身的开发，减轻开发工作量，同时还能把不同的应用无缝衔接集成，自动实现统一用户管理和资源授权、单点登陆（SSO）、数据集中分析、内容聚合展示、应用集成一体。 可快速完成业务系统开发及整合（应用整合、数据整合）目前框架包含的常用功能组件有：</p>
+<p>DMS是一个在它山石（TSS）基础平台上开发的数据管理平台，专注于高效开发数据报表，降低数据分析及分发的成本。DMS使的企业管理者能够快速、准确地获取各类重要业务数据。各类分析完备的数据能够为企业管理者在第一时间做出市场决策提供强有力支持和保障。
+</p>
+<p>
+DMS的核心的设计思想简单至极：怎么样把一个SQL快速变成报表？这想法源自我亲身经历，曾经我肩负管理生产数据库的工作，业务人员经常会找我要一些数据以供他们拿去分析后做成报表再汇报给领导或分发到一线部门。每当这样的需求来时，我就得打开PL/SQL，登录到生产库，写查询SQL，查询并导出数据，然后邮件发送给业务人员。整个过程费时费力，<b>而且当最终的数据分析结果到达需要它的人手里时，很长的时间已经过去，在如今这风云变幻的市场面前，数据能为决策提供强有力支持，而缓慢繁琐的获取分析过程极有可能延误最佳的决策良机，过多的人工参与也使得数据的准确性缺乏保障。</b>基于这些，我设计了DMS，期望它能做到以下功能：
 
+<pre>
+1、在网页上输入SQL-->执行查询-->获取数据-->生成表格展示-->下载，使业务人员只要会写SQL就能自己开发所需报表
+2、允许用户自定义查询条件
+3、要支持多数据源
+4、要能控制访问权限，可授权给不同级别的人员使用。权限还要进一步分解成报表权限和数据权限
+5、支持定时机制，可以自动定时执行查询并导出数据，然后发给指定人员
+6、用户能自己订阅感兴趣的数据
+7、提供丰富的图表展示模板，让数据变的生动起来
+8、允许用户把自己查询到的数据（图表）分享给其它人，并可加以评论，形成数据门户加数据社区
+9、最后还要有一些辅助功能，能统计每个报表的执行效率、访问情况等，能对数据进行缓存提升性能
+</pre>
+</p>
+<p>
+在开发过程中，TSS发挥了强有力的基础平台左右，提供了灵活的资源权限机制，使得报表作为一种资源方便的完成了注册及授权，TSS的参数配置、缓存管理、日志管理、定时配置等公共模块都可以直接拿来使用，比如多数据源的实现就是依赖缓存池里的线程池配置，而Portal和CMS则为数据门户和数据社区的实现提供底层支持。
+</p>
+
+<h2>实例展示</h2>
 <div class="accordian">
 	<ul>
 		<li>
-			<h2>Cars 2</h2>
-			<a href="#"><img src="pic/btr1.png"/></a>
+			<h2>DMS的基本功能界面</h2>
+			<a href="#"><img src="pic/dms1.png"/></a>
 		</li>
 		<li>
-			<h2>Cars 2</h2>
-			<a href="#"><img src="pic/wms1.png"/></a>
+			<h2>二次开发定制报表</h2>
+			<a href="#"><img src="pic/dms2.png"/></a>
 		</li>
 		<li>
-			<h2>Cars 2</h2>
-			<a href="#"><img src="pic/btr2.png"/></a>
+			<h2>数据提取 + 图表模板展示</h2>
+			<a href="#"><img src="pic/dms3.png"/></a>
 		</li>
 		<li>
-			<h2>Cars 2</h2>
-			<a href="#"><img src="pic/btr3.png"/></a>
+			<h2>数据门户</h2>
+			<a href="#"><img src="pic/dms4.png"/></a>
 		</li>
 		<li>
-			<h2>Cars 2</h2>
-			<a href="#"><img src="pic/portal3.png"/></a>
+			<h2>丰富的展示效果</h2>
+			<a href="#"><img src="pic/dms5.png"/></a>
 		</li>
 	</ul>
 </div>
+
+<br/>
+<h2>下载</h2>
+<div class="downloads" style="margin-bottom:1em">
+    <div class="grid">
+        <div class="grid-item one-half">
+        	<a class="btn btn-secondary btn--full" href="https://waitwind.github.com/">
+        		Development <span class="subdued">(3.2MB)</span>
+        	</a>
+        </div>
+        <div class="grid-item one-half">
+        	<a class="btn btn-secondary btn--full" href="https://waitwind.github.com">Production 
+        		<span class="subdued">(1.2MB)</span>
+        	</a>
+        </div>
+    </div>
+</div>
+
 
 </div>
 <a class="btnToTop btn btn-plain" href="#" id="btnToTop">Top <i class="iconToTop"></i></a>
