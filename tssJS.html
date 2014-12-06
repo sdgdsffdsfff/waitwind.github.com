@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>tssJS介绍</title>
+	
+	<link rel="stylesheet" href="tools/normalize.css">
+    <link rel="stylesheet" href="css.css">
+    <style type="text/css">
+		
+	</style>
+</head>
+<body>
+
+<div class="github">
+  <a href="https://github.com/waitwind/jinhe-tssJS">Fork me on GitHub</a>
+</div>
+
+<header id="header" class="header header-fixed">
+    <div class="container" >
+        <nav>
+            <ul class="nav subdued">
+                <li><a class="subdued" href="index.html">TSS</a></li>
+                <li><a class="subdued" href="dms.html">DMS</a></li>
+                <li><a class="subdued" href="tssJS.html">tssJS</a></li>
+            </ul>
+        </nav>
+        
+        <a href="http://waitwind.github.com" class="brand">
+            <b class="forename">tssJS</b><b class="surname">.js</b>
+        </a>
+    </div>
+</header>
+
+<article>
+<header class="articleHeader">
+    <div class="container article-title">
+        <h1>No JQuery、No BootStrap，just tssJS</h1>
+        <p>一个任性的10年JAVA老猿的Web尝试</p>
+    </div>
+</header>
+
+<div class="container block main" role="main" >
+
+<h2>tssJS是什么</h2> 
+
+
+</div>
+<a class="btnToTop btn btn-plain" href="#" id="btnToTop">Top <i class="iconToTop"></i></a>
+</article>
+
+
+<script src="tools/headroom.js"></script>
+<script>
+(function() {
+    var header = new Headroom(document.querySelector("#header"), {
+        tolerance: 5,
+        offset : 205,
+        classes: {
+          initial : "slide",
+          pinned  : "slide-reset",
+          unpinned: "hideTop"
+        }
+    });
+    header.init();
+
+    var btnToTopHeadroom = new Headroom(document.getElementById("btnToTop"), {
+        tolerance : 0,
+        offset : 500,
+        classes : {
+            initial : "slide",
+            pinned  : "slide-reset",
+            unpinned: "hideBottom"
+        }
+    });
+
+    btnToTopHeadroom.init();
+
+}());
+</script>
+</body>
+</html>	
