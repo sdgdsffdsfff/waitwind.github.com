@@ -262,7 +262,7 @@ a.subdued:hover { color: #fff }
 
 .main { margin-top: 1.5em }
 
-.articleHeader { background-color: #4ecdc4; padding: 4em 0 3px 0 }
+.articleHeader { background-color: #4ecdc4; padding: 2.5em 0 3px 0 }
 .article-title { text-align: center }
 
 @media screen and (min-width:40em) {

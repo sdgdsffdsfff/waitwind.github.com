@@ -56,21 +56,54 @@ tssJS是在开发它山石应用基础平台的过程中衍生提取出来的一
 </p>
 
 <h2>整体架构</h2> 
+<pre>
+(function( window, undefined ) {
+    // 构造tssJS对象
+    var tssJS = function( selector, parent ) {
+        return new tssJS.fn.init( selector, parent, rootTssJS );
+    }
+    // 工具函数 Utilities
+    // 浏览器测试
+    // 事件处理 Event
+    // 选择器 
+    // DOM遍历、操作
+    // CSS操作
+    // Ajax
+
+    // 插件扩展接口
+    jQuery.extend = jQuery.fn.extend = function() {
+        ......
+    }   
+    tssJS.extend 对tssJS本身的属性和方法进行了扩展
+    tssJS.fn.extend tssJS.fn（原型）的属性和方法进行了扩展
+
+    window.tssJS = window.$ = tssJS;  // 和大多JS框架一样，我也喜欢用$作为快捷符号
+})(window);
+</pre>
 <p>
-tssJS框架的核心和JQuery一样，就是从HTML文档中匹配元素并对其执行操作。
+
+熟悉jQuery源码的同学一眼就能看出，这是仿jQuery写的。tssJS框架的核心和JQuery一样，就是从HTML/XML文档中匹配元素并对其执行操作。通过向tssJS(selector, parent)传入一个选择器定位到要查找的元素，封装成tssJS对象，再对其进行后续操作。
 </p>
 
 <h2>选择器</h2> 
+<p>
+使用原生的DOM选择器querySelector及querySelectorAll，它们的使用非常的简单，和CSS的写法完全一样。HTML5引入的这两原生方法，是我敢于自己动手写tssJS的一大主要原因，jQuery之所以流行，很大原因是它强大的选择器功能，而现在HTML5已经天然支持。虽然当下的一些老式浏览器（尤指IE6）兼容性上存在一些问题，但咱着眼点是几年后，这些老东西们总会有退出历史舞台的一天的。简单举几个示例：
+<pre>
+    var $div = $("#div1");
+    var $div = $(".c2");
+    var $div = $(".c2 #div1");
+</pre>
+</p>
 
-<h2>DOM操作</h2> 
+<h2>DOM(HTML&XML)操作</h2> 
 
-<h2>样式操作</h2> 
+<h2>CSS样式操作</h2> 
 
-<h2>事件处理</h2> 
+<h2>Event事件处理</h2> 
 
-<h2>Ajax整体结构</h2> 
+<h2>Ajax封装结构</h2> 
 
-<h2>JSONP</h2> 
+<h2>使用JSONP跨域调用</h2> 
 
 <h2>右键菜单菜单组件</h2> 
 
@@ -86,10 +119,13 @@ tssJS框架的核心和JQuery一样，就是从HTML文档中匹配元素并对�
 
 <h2>时间选择器</h2>
 
+<h2><a href="mailTo:llrtss@163.com">联系方式：llrtss@163.com</a></h2>
+
+<h2>Licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a></h2>
+
 </div>
 <a class="btnToTop btn btn-plain" href="#" id="btnToTop">Top <i class="iconToTop"></i></a>
 </article>
-
 
 <script src="tools/headroom.js"></script>
 <script>
