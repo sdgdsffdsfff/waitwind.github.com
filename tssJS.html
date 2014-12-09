@@ -7,7 +7,12 @@
 	<link rel="stylesheet" href="tools/normalize.css">
     <link rel="stylesheet" href="css.css">
     <style type="text/css">
-		
+		iframe {
+            width: 940px;
+            background-color:#ddedfb; 
+            border:1px #69f solid;
+            border-radius: 5px;
+        }
 	</style>
 
     <script src="http://s4.cnzz.com/z_stat.php?id=1253705547&web_id=1253705547" language="JavaScript"></script>
@@ -87,41 +92,107 @@ tssJS是在开发它山石应用基础平台的过程中衍生提取出来的一
 
 <h2>选择器</h2> 
 <p>
-使用原生的DOM选择器querySelector及querySelectorAll，它们的使用非常的简单，和CSS的写法完全一样。HTML5引入的这两原生方法，是我敢于自己动手写tssJS的一大主要原因，jQuery之所以流行，很大原因是它强大的选择器功能，而现在HTML5已经天然支持。虽然当下的一些老式浏览器（尤指IE6）兼容性上存在一些问题，但咱着眼点是几年后，这些老东西们总会有退出历史舞台的一天的。简单举几个示例：
+使用原生的DOM选择器querySelector及querySelectorAll，它们的使用非常的简单，和CSS的写法完全一样。HTML5引入的这两原生方法，是我敢于自己动手写tssJS的一大主要原因，jQuery之所以流行，很大原因是它强大的选择器功能，而现在HTML5已经天然支持。虽然当下的一些老式浏览器（尤指IE6/7/8）兼容性上存在一些问题，但咱着眼点是几年后，这些老东西们总会有退出历史舞台的一天的。选择器支持多种方式的处理：
 <pre>
-    var $div = $("#div1");
-    var $div = $(".c2");
-    var $div = $(".c2 #div1");
+    var $div1 = $("#div1");
+    var $div2 = $(".container");
+    var $div3 = $(".c2 div", $div2[0]);
+
+    $()
+    $(document) 
+    $(function(){})    
 </pre>
 </p>
 
-<h2>DOM(HTML&XML)操作</h2> 
+<h2>DOM(HTML)及CSS样式操作</h2> 
+<p>
+提供了常见的查找、创建、删除Element，设置Element样式，定位Element位置等方法。示例：
+<pre>
+    $("#div1").css("backgroundColor", "#565656").addClass("cc").removeClass("cc")
+        .html('...')
+        .hover( function() { ... }, function() { ... } )
+        .toggle(function() { ... }, function() { ... } )
+        .click( function() { ... } )
+</pre>
+</p>
 
-<h2>CSS样式操作</h2> 
+<h2>DOM(XML)操作</h2> 
+<p>
+提供了常见的创建、删除、查找XML Node，及操作CDATA节点等方法
+</p>
 
 <h2>Event事件处理</h2> 
+<p>
+提供了常见的添加、删除、取消事件，阻止冒泡，添加模拟事件等方法
+</p>
 
 <h2>Ajax封装结构</h2> 
+<p>
+Ajax模块除了提供提供基本ajax操作以外，还结合TSS的异常机制，对请求发生异常时的提示信息进行优化，还和单点登录模块结合，对需要登录后才能访问数据服务进行过滤，在用户重新完成登录后再自动重发ajax请求，且无需跳转到登录页。这样可以有效防止用户在长时间录入信息时，因登录超时而照成录入数据丢失。
+<pre>
+    $.ajax({
+        url : url,
+        method : "GET", // GET/POST/PUT/DELETE
+        headers : {},
+        params  : {}, 
+        type : 'json', // or xml/txt
+        async：true,  // or false
+        ondata : function() { },
+        onresult : function() { },
+        onexception : function() { },
+        onsuccess : function() { }
+    });
+</pre>
+</p>
 
 <h2>使用JSONP跨域调用</h2> 
+<pre>
+    $.JSONP.getJSON(url, params, callback);
+</pre>
 
 <h2>右键菜单菜单组件</h2> 
+<iframe src="tssJSDemo/test/testMenu.html" height="200"></iframe>
 
 <h2>Form组件</h2> 
+<iframe src="tssJSDemo/test/testForm.html" height="250"></iframe>
 
 <h2>Grid组件</h2> 
+<iframe src="tssJSDemo/test/testGrid.html" height="300"></iframe>
 
 <h2>Tree组件</h2> 
+<iframe src="tssJSDemo/test/testTree.html" height="300"></iframe>
 
 <h2>Layout布局</h2> 
+<iframe src="tssJSDemo/test/testWS.html" height="350"></iframe>
 
 <h2>进度条</h2>
+<iframe src="tssJSDemo/test/testProgress.html" height="100"></iframe>
 
 <h2>时间选择器</h2>
+<iframe src="tssJSDemo/test/testCalendar.html" height="250"></iframe>
+
+<br/><br/>
+<h2>更多例子参考<a href="index.html">TSS</a>和<a href="dms.html">TSS</a>里示例界面</h2>
 
 <h2><a href="mailTo:llrtss@163.com">联系方式：llrtss@163.com</a></h2>
 
 <h2>Licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a></h2>
+
+<h2>下载</h2>
+<div class="downloads" style="margin-bottom:1em">
+    <div class="grid">
+        <div class="grid-item one-half">
+            <a class="btn btn-secondary btn--full" href="https://github.com/waitwind/jinhe-tssJS">
+                当前开发中版本 <span class="subdued">(5.5MB)</span>
+            </a>
+        </div>
+        <div class="grid-item one-half">
+            <a class="btn btn-secondary btn--full" href="https://github.com/waitwind/jinhe-tssJS">tssJS 1.0
+                <span class="subdued">(5.5MB)</span>
+            </a>
+        </div>
+    </div>
+</div>
 
 </div>
 <a class="btnToTop btn btn-plain" href="#" id="btnToTop">Top <i class="iconToTop"></i></a>
