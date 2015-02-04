@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DMS使用手册</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="keywords" content="它山石，应用基础平台，应用整合，内容聚合，数据分析，数据挖掘，大数据">
+  
+  <link rel="stylesheet" href="tools/normalize.css">
+  <link rel="stylesheet" href="css.css">
+  <style type="text/css">
+ 
+  </style>
+  <script src="http://s4.cnzz.com/z_stat.php?id=1253705547&web_id=1253705547"></script>
+</head>
+<body>
+
+<div class="github">
+  <a href="https://github.com/waitwind">Fork me on GitHub</a>
+</div>
+
+<header id="header" class="header header-fixed">
+    <div class="container" >
+        <nav>
+            <ul class="nav subdued">
+                <li><a class="subdued" href="index.html">TSS</a></li>
+                <li><a class="subdued" href="dms.html">DMS</a></li>
+                <li><a class="subdued" href="tssJS.html">tssJS</a></li>
+            </ul>
+        </nav>
+        
+        <a href="http://waitwind.github.com" class="brand">
+            <b class="forename">它山石</b><b class="surname">应用基础平台</b>
+        </a>
+    </div>
+</header>
+
+<article>
+<header class="articleHeader">
+    <div class="container article-title">
+        <h1>它山之石，可以攻玉；它山之石，可以试错。</h1>
+        <p>它山石，让应用开发更简单、更高效！</p>
+    </div>
+</header>
+
+<div class="container block main" role="main" >
+
+<h2>一、添加数据源</h2> 
+<p>
+  <br>
+  1、进入jinhe-dm\src\main\resources\database目录，新建一个properties文件，加入如下数据库连接信息
+  <pre>
+    db.connection.driver_class  com.mysql.jdbc.Driver
+    db.connection.username root
+    db.connection.password 800best@com
+    db.connection.url  jdbc:mysql://localhost:3306/dms
+  </pre>
+
+  2、进入jinhe-dm\src\main\resources\tss目录，打开cache.xml, 新增加一个连接池配置。
+  <pre>
+    &lt;strategy code="connpool-XXX" name="DB连接池-XXX"> 
+      &lt;poolClass>com.jinhe.tss.cache.extension.ReusablePool&lt;/poolClass>  
+      &lt;poolSize>10&lt;/poolSize>  
+      &lt;cyclelife>43200000&lt;/cyclelife>  
+      &lt;interruptTime>1000&lt;/interruptTime>  
+      &lt;initNum>0&lt;/initNum>  
+      &lt;customizerClass>com.jinhe.tss.framework.persistence.connpool.ConnPoolCustomizer&lt;/customizerClass>  
+      &lt;paramFile>database/your.properties&lt;/paramFile>  &lt;!-- 第一步新建好的数据库连接信息文件 -->
+    &lt;/strategy>
+  </pre>
+  3、打包、启动
+  4、维护数据源列表，param模块
+</p>
+
+<h2>二、创建报表</h2> 
+
+</div>
+<a class="btnToTop btn btn-plain" href="#" id="btnToTop">Top <i class="iconToTop"></i></a>
+</article>
+
+
+<script src="tools/headroom.js"></script>
+<script>
+(function() {
+    var header = new Headroom(document.querySelector("#header"), {
+        tolerance: 5,
+        offset : 205,
+        classes: {
+          initial : "slide",
+          pinned  : "slide-reset",
+          unpinned: "hideTop"
+        }
+    });
+    header.init();
+
+    var btnToTopHeadroom = new Headroom(document.getElementById("btnToTop"), {
+        tolerance : 0,
+        offset : 500,
+        classes : {
+            initial : "slide",
+            pinned  : "slide-reset",
+            unpinned: "hideBottom"
+        }
+    });
+
+    btnToTopHeadroom.init();
+
+}());
+</script>
+</body>
+</html> 
