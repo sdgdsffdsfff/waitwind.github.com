@@ -3,7 +3,7 @@
 	<ProgressInfo>
 		<actionSet>
 			<percent>60</percent>
-			<delay>100</delay>
+			<delay>1</delay>
 			<estimateTime>80</estimateTime>
 			<code>syncUser</code>
 		</actionSet>

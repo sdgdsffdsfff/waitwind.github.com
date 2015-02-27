@@ -1,8 +1,11 @@
+
+
+/* 布局组件 */
 ;(function ($, factory) {
 
-    $.WorkSpace = factory();
+    $.WorkSpace = factory($);
 
-})(tssJS, function () {
+})(tssJS, function($) {
 
     'use strict';
 

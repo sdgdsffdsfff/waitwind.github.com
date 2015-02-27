@@ -1,3 +1,6 @@
+
+
+/* Form组件 */
 ;(function ($, factory) {
 
     $.Form = factory($);
@@ -18,7 +21,15 @@
         }
         
         return form;
-    }
+    };
+
+    $.fn.extend({
+        form: function(data) {
+            if(this.length > 0) {
+                return $.F(this[0].id, data);
+            }
+        }
+    });
 
 })(tssJS, function ($) {
 
@@ -26,10 +37,8 @@
 
     var showErrorInfo = function(errorInfo, obj) {
         setTimeout(function() {
-            // 页面全局Balllon对象
             if( $.Balloon ) {
-                var balloon = new $.Balloon(errorInfo);
-                balloon.dockTo(obj);
+                $(obj).notice(errorInfo);
             }
         }, 100);
     },
@@ -191,7 +200,7 @@
                         else if(mode == "string" && nodeName == 'textarea') {
                             htmls.push("<textarea " + copyNodeAttribute(childNode) + copyColumnAttribute(column) + ">" + (value ? value : "") + "</textarea>");
                         }
-                        else if(mode == "string" || mode == "number" || mode == "function" || mode == "date") {
+                        else if(mode == "string" || mode == "number" || mode == "function" || mode == "date" || mode == "datetime") {
                             htmls.push("<input " + copyNodeAttribute(childNode) + copyColumnAttribute(column) + _value + "></input>");
                         }
                     }
@@ -299,6 +308,9 @@
                     case "function":
                         fieldObj = new FunctionField(fieldName, this);
                         break;
+                    case "datetime":
+                        fieldObj = new FunctionField(fieldName, this, true);
+                        break;
                     case "hidden":
                         fieldObj = new HiddenFiled(fieldName, this);
                         break;
@@ -308,9 +320,9 @@
                 this.fieldObjMap[fieldName] = fieldObj;
 
                 if(field.getAttribute('empty') == "false") {
-                    var notnullTag = $.createElement("span", "notnull");
-                    $(notnullTag).html("*");
-                    fieldEl.parentNode.appendChild(notnullTag);
+                    var requiredTag = $.createElement("span", "required");
+                    $(requiredTag).html("*");
+                    fieldEl.parentNode.appendChild(requiredTag);
                 }
             }
 
@@ -499,10 +511,10 @@
     };
 
     // 自定义方法输入值类型
-    var FunctionField = function(fieldName, form) {
+    var FunctionField = function(fieldName, form, isDatetime) {
         this.el = $$(fieldName);
         this.el._value = this.el.value; // 备份原值
-        this.isdate = (this.el.getAttribute("mode").toLowerCase() == "date");
+        this.isdate = (this.el.getAttribute("mode").toLowerCase() == "date") || isDatetime;
      
         if( !this.el.disabled ) {
             if(this.isdate) {
@@ -511,9 +523,10 @@
                         field: $1(this.el.id),
                         firstDay: 1,
                         minDate: new Date('2000-01-01'),
-                        maxDate: new Date('2020-12-31'),
-                        yearRange: [2000,2020],
-                        format: 'yyyy-MM-dd'
+                        maxDate: new Date('2030-12-31'),
+                        yearRange: [2000,2030],
+                        format: 'yyyy-MM-dd',
+                        careTime: isDatetime
                     });
                 }
             }

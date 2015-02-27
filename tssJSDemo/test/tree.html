@@ -35,6 +35,10 @@ var treeData;
 
 function init() {
 
+    if(window.parent != window.self) {
+        $("#tempUL").hide();
+    }
+
 	$.ajax({
 		url: "data/tree.json?",
 		method : "GET",
@@ -42,7 +46,7 @@ function init() {
 		ondata: function() {
 			treeData = this.getResponseJSON();
 			console.log(treeData);
-			var tree3 = $.T("tree3", treeData);	
+			var tree3 = $("#tree3").tree(treeData);	
 		}
 	});
  
@@ -194,13 +198,13 @@ window.onload = init;
 		</tr>
 		<tr height="380">
 			<td>
-				<Tree:Box id="tree" treeType="single" moveable="true"></Tree:Box>
+				<Tree id="tree" treeType="single" moveable="true"></Tree>
 			</td>
 			<td>
-				<Tree:Box id="tree2" treeType="multi" selectSelf="false"></Tree:Box>
+				<Tree id="tree2" treeType="multi" selectSelf="false"></Tree>
 			</td>
 			<td>
-				<Tree:Box id="tree3" treeType="single" moveable="true"></Tree:Box>
+				<Tree id="tree3" treeType="single" moveable="true"></Tree>
 			</td>
 		</tr>
 		<tr>
@@ -219,7 +223,7 @@ window.onload = init;
 		</tr>
 	</table>
 
-	<ul id="tempUL" style="height:30px;width:100px;background-color:red;display:none;"></ul>
+	<ul id="tempUL" style="height:30px;width:100px;background-color:red;"></ul>
 
 </body>
 </html>

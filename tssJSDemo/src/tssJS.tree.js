@@ -1,4 +1,6 @@
 
+
+/* 树控件 */
 ;(function($, factory) {
 
     $.Tree = factory($);
@@ -15,7 +17,15 @@
         }
         
         return tree;
-    }
+    };
+
+    $.fn.extend({
+        tree: function(data) {
+            if(this.length > 0) {
+               return $.T(this[0].id, data);
+            }
+        }
+    });
 
 })(tssJS, function($) {
 
@@ -502,6 +512,10 @@
                 $(parent.li.switchIcon).removeClasses("node_open,node_close").addClass("node_leaf");
                 parent.li.selfIcon.removeClass("folder").addClass("leaf");
             }
+        },
+        // 删除当前选中的节点
+        removeActiveNode: function() {
+            this.removeTreeNode(this.getActiveTreeNode());
         },
 
         /*

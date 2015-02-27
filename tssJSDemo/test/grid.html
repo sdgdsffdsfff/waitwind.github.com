@@ -29,7 +29,7 @@
 			method : "GET",
 			onresult : function() {
 				var gridData = this.getNodeValue("SourceList");
-				var grid = $.G("grid", gridData);       
+				var grid = $("#grid").grid(gridData);      
 
 				var gridPage = this.getNodeValue("PageInfo");
 				createGridToolBar(gridPage);			
@@ -131,7 +131,7 @@
   </tr>
   <tr>
 	<td>
-		<Grid:Box id="grid" style="height:100%;overflow:auto;"></Grid:Box>
+		<Grid id="grid" style="height:100%;overflow:auto;"></Grid>
 	</td>
   </tr>
 </table>			

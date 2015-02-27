@@ -153,27 +153,27 @@ AJAX模块除了提供提供基本ajax操作以外，还结合TSS的异常机制
 
 <h2>右键菜单菜单组件</h2> 
 <p>和其它组件（tree、grid等）配合使用，可方便的定义各种操作菜单。</p>
-<iframe src="tssJSDemo/test/testMenu.html" height="180"></iframe>
+<iframe src="tssJSDemo/test/menu.html" height="180"></iframe>
 
 <h2>Form组件</h2> 
 <p>把定义好的Form模板（支持XML和JSON两种格式）直接生成html表单，绑定数据源，展示数据字段。可用于新建、编辑单个后台的实体对象。Form模板可以依据实体对象的属性自动生成，减少前台的配置工作。<a onclick="$('#if1').css('display', '')">点击查看示例</a></p>
 <pre>
-    $.F(fomrId, xmlTemplate);
+    $("#" + fomrId).form(xmlTemplate) or $.F(fomrId, xmlTemplate);
     $.json2Form(formId, jsonTemplate)
 </pre>
-<iframe src="tssJSDemo/test/testTssForm.html" height="250" style="display:none;" id="if1"></iframe>
+<iframe src="tssJSDemo/test/form.html" height="350" style="display:none;" id="if1"></iframe>
 
 <h2>Grid组件</h2> 
-<p>把定义好的Grid模板（支持XML格式）绑定数据源后直接生成html table， 展示数据列表。可用于批量展示后台的实体对象列表。Grid模板可以依据实体对象的属性自动生成，减少前台的配置工作。</p>
-<iframe src="tssJSDemo/test/testTssGrid.html" height="300"></iframe>
+<p>把定义好的Grid模板（支持XML格式）绑定数据源后直接生成html table， 展示数据列表。可用于批量展示后台的实体对象列表。Grid模板可以依据实体对象的属性自动生成，能有效减少前台的配置工作。</p>
+<iframe src="tssJSDemo/test/grid.html" height="300"></iframe>
 
 <h2>Tree组件</h2> 
 <p>树形控件的类型包括单选树、多选树两种，可分别各类资源的展示和选择。不限层次深度，数据格式支持XML和JSON两种。</p>
-<iframe src="tssJSDemo/test/testTssTree.html" height="455"></iframe>
+<iframe src="tssJSDemo/test/tree.html" height="455"></iframe>
 
 <h2>Layout布局</h2> 
 <p>用于界面布局，支持多tab页展示，每个tab页还可以多步骤展示。</p>
-<iframe src="tssJSDemo/test/testWS.html" height="330"></iframe>
+<iframe src="tssJSDemo/test/workspace.html" height="330"></iframe>
 
 <h2>进度条</h2>
 <p>用于读取或写入大数据时的进度提示，增强操作友好性。</p>
@@ -181,7 +181,7 @@ AJAX模块除了提供提供基本ajax操作以外，还结合TSS的异常机制
 
 <h2>时间选择器</h2>
 <p>一个简洁朴素的时间控件。<a onclick="$('#if2').css('display', '')">点击查看示例</a></p>
-<iframe src="tssJSDemo/test/testCalendar.html" height="250" style="display:none;" id="if2"></iframe>
+<iframe src="tssJSDemo/test/calendar.html" height="300" style="display:none;" id="if2"></iframe>
 
 <br/><br/>
 <h2>更多例子参考<a href="index.html"> TSS </a>和<a href="dms.html"> DMS </a>里示例界面</h2>

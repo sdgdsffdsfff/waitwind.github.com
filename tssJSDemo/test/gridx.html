@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<HTML XMLNS:Grid>
+<head>
+	<meta charset="UTF-8"/>
+	<title>DataGrid test</title>
+
+	<link href="../css/tss.common.css" rel="stylesheet">
+	<link href="../css/tss.menu.css" rel="stylesheet">
+	<link href="../css/tss.balloon.css" rel="stylesheet">
+	<link href="../css/tss.grid.css" rel="stylesheet">
+
+	<style type="text/css">
+		.container {
+            border: #000000 1px solid;
+            height: 500px;
+            overflow-y: auto;
+            width: 1200px;
+        }
+		.datagrid { width:100%; height:100%; position:relative; padding-top:0px; display:inline-block;}
+		.datagrid table { width:100%; height:auto; table-layout:fixed; border:0px; margin:0px; border-collapse:collapse;}
+		.datagrid td { font-size:12px; text-align:center; border-style:solid; border-color:#FFFFFF #96969E #96969E #FFFFFF; border-width:1px;}
+ 
+		.datagrid thead td { background-color:#E4E6F5; height:25px; }
+
+		.datagrid tbody { background-color:#F7F8FD; }
+		.datagrid tbody tr { height:25px; }
+		.datagrid tbody td { overflow: hidden; text-overflow:ellipsis; white-space: nowrap; word-break:keep-all; }
+		.datagrid tbody td div { padding:2px; }
+
+		.datagrid .highlight { background-color:#FEF7A9; }
+
+	</style>
+
+	<script src="../src/tssJS.js"></script>
+	<script src="../src/tssJS.ajax.js"></script>
+	<script src="../src/tssJS.menu.js"></script>
+	<script src="../src/tssJS.balloon.js"></script>
+
+	<script src="../src/tssJS.gridx.js"></script>
+
+
+	<script type="text/javascript">
+	    $().ready( function() {
+			show();
+	    } );
+
+	    function show() {
+	    	$.ajax({
+	            url : 'data/gridx.json',
+	            method : 'GET',
+	            type : "json",
+	            waiting : true,
+	            ondata : function() { 
+	                var data = this.getResponseJSON();	            
+
+	                $('#dg').datagrid({
+	                	columns:[
+            				{"name": "name", "label": "名称", "width": "180", "align": "left"},
+            				{"name": "一月", "type" : "number", "editable" : "true",  "formatter": formatter},
+            				{"name": "二月", "type" : "number", "editable" : "true",  "formatter": formatter},
+            				{"name": "三月", "type" : "number", "editable" : "true"},
+            				{"name": "四月", "type" : "number", "editable" : "true"},
+            				{"name": "五月", "type" : "number", "editable" : "true"},
+            				{"name": "六月", "type" : "number", "editable" : "true"},
+            				{"name": "七月", "type" : "number", "editable" : "true"},
+            				{"name": "八月", "type" : "number", "editable" : "true"},
+            				{"name": "九月", "type" : "number", "editable" : "true"},
+            				{"name": "十月", "type" : "number", "editable" : "true"},
+            				{"name": "十一月", "type" : "number", "editable" : "true"},
+            				{"name": "十二月", "type" : "number", "editable" : "true"},
+            				{"name": "汇总", "type" : "number",  "formatter": formatter, "styler": styler}
+            			],			
+            			rowStyler: rowStyler,	    
+					    data: data 
+					});
+	            }
+	        });
+	    }
+
+	    function afterEditCell(cell, row) {
+
+	    } 
+
+	    function formatter(value, row) {
+	    	if( $.isNullOrEmpty(value) ) return "";
+
+	    	if (row.data.name.indexOf('率') == -1) {
+	    		return $.formatMoney(value, 2);
+	    	}
+	    	else{
+	    		return Math.round(value*1000) / 10 + '%'
+	    	};			
+		}
+
+		function rowStyler(value, row) {
+			if (row.data.name.indexOf('利') >= 0){
+                // $(row).css('backgroundColor', '#6293BB');
+            }
+
+            if (row.data.rank === '一级') {
+	    		 $("td>div", row).attr("contenteditable", "false");
+	    		 $(row).css('backgroundColor', '#CCCCCC');
+	    	}
+		}
+
+		function styler(value, cell) {
+			if (value && value < 0){
+                $(cell).css('backgroundColor', 'red');
+            }
+		}
+
+ 
+	
+	</script>
+</head>
+
+<body>
+ 
+ 	<div class="container">
+		<table id="dg"></table>
+	</div>
+
+</body>
+</html>

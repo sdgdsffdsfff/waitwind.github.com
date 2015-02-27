@@ -1,30 +1,41 @@
+
+
+/* 日期时间选择控件 */
 ;(function ($, factory) {
 
-    $.Calendar = factory($.moment);
+    $.Calendar = factory($);
 
-})(tssJS, function (moment) {
+    $.createCalendar = function(el, careTime) {
+        $(el).calendar({
+            format: 'yyyy-MM-dd',
+            careTime: careTime || false
+        });
+    };
+
+    $.fn.extend({
+        calendar: function(inits) {
+            if(this.length > 0) {
+                inits = inits || {};
+                inits.field = this[0];
+
+                return new $.Calendar( inits );
+            }
+        }
+    });
+
+})(tssJS, function ($) {
     
     'use strict';
 
     var  document = window.document,
-
-    fireEvent = function(el, eventName, data) {
-        var ev;
-
-        if (document.createEvent) {
-            ev = document.createEvent('HTMLEvents');
-            ev.initEvent(eventName, true, false);
-            ev = extend(ev, data);
-            el.dispatchEvent(ev);
-        } else if (document.createEventObject) {
-            ev = document.createEventObject();
-            ev = extend(ev, data);
-            el.fireEvent('on' + eventName, ev);
-        }
-    },
  
     isDate = function(obj) {
         return (/Date/).test(Object.prototype.toString.call(obj)) && !isNaN(obj.getTime());
+    },
+
+    string2Date = function(_s) {
+        var d = new Date(Date.parse(_s.replace(/-/g, "/"))); // Date.parse in IE only support yyyy/mm/dd
+        return d;
     },
 
     isLeapYear = function(year) {
@@ -35,12 +46,35 @@
         return [31, (isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
     },
 
+    getSelectdTime = function($ranges) {
+        if($ranges == null || $ranges.length < 3) return "00:00:00";
+
+        var _hour   = $ranges[0].value;
+        var _minute = $ranges[1].value;
+        var _second = $ranges[2].value;
+        _hour = _hour.length == 1 ? "0" + _hour : _hour;
+        _minute = _minute.length == 1 ? "0" + _minute : _minute;
+        _second = _second.length == 1 ? "0" + _second : _second;
+
+        return _hour + ":" + _minute + ":" + _second;
+    },
+
+    setSelectdTime = function($ranges, self) {
+        $ranges[0].value = self._hour || 0;
+        $ranges[1].value = self._minute || 0;
+        $ranges[2].value = self._second || 0;
+
+        $('.timeAera .range1', self.el).html( self._hour || '00');
+        $('.timeAera .range2', self.el).html( self._minute || '00');
+        $('.timeAera .range3', self.el).html( self._second || '00');
+    },
+
     setToStartOfDay = function(date) {
-        if ( isDate(date) )  date.setHours(0, 0, 0, 0);
+        if ( isDate(date) )  date.setHours(0, 0, 0, 0); // 对时分秒进行清零
     },
 
     compareDates = function(a, b) {
-        return a.getTime() === b.getTime();
+        return a.format('yyyy-MM-dd') === b.format('yyyy-MM-dd');
     },
 
     extend = function(to, from, overwrite) {
@@ -77,7 +111,10 @@
         position: 'bottom left',
 
         // the default output format for `.toString()` and `field` value
-        format: 'YYYY-MM-DD',
+        format: 'yyyy-MM-dd',
+
+        // hh:mi:ss
+        careTime: false,
 
         // the initial date to view when first opened
         defaultDate: null,
@@ -119,8 +156,7 @@
         // callback function
         onSelect: null,
         onOpen: null,
-        onClose: null,
-        onDraw: null
+        onClose: null
     },
 
 
@@ -227,6 +263,17 @@
         return '<table class="pika-table">' + renderHead(opts) + renderBody(data) + '</table>';
     },
 
+    renderTime = function(opts, time) {
+        var html = [];
+        html.push('<div class="timeAera">');
+        html.push('时：<input type="range" min="0" max="23" value="0" step="1" onchange="$(\'.range1\', this.parentNode).html(this.value);" /><span class="range1">00</span><br/>');
+        html.push('分：<input type="range" min="0" max="59" value="0" step="1" onchange="$(\'.range2\', this.parentNode).html(this.value);" /><span class="range2">00</span><br/>');
+        html.push('秒：<input type="range" min="0" max="59" value="0" step="1" onchange="$(\'.range3\', this.parentNode).html(this.value);" /><span class="range3">00</span><br/>');
+        html.push('<button type="button">确定</button>');
+        html.push('</div>');
+        return html.join("\n");
+    },
+
 
     /**  JCalendar constructor */
     JCalendar = function(options) {
@@ -240,12 +287,23 @@
             var target = e.target || e.srcElement;
             if (!target) return;
 
+            if ( target.parentNode && $.hasClass(target.parentNode, 'timeAera') ) {
+                self._c = true;
+                return;
+            }
+
             if (!$.hasClass(target, 'is-disabled')) {
                 if ($.hasClass(target, 'pika-button') && !$.hasClass(target, 'is-empty')) {
-                    self.setDate(new Date(self._y, self._m, parseInt(target.innerHTML, 10)));
-                        window.setTimeout(function() {
-                            self.hide();
-                        }, 100);
+                    var selectedDate = new Date(self._y, self._m, parseInt(target.innerHTML, 10));
+
+                    if( opts.careTime ) {
+                        selectedDate.setHours(self._hour||0, self._minute||0, self._second||0, 0)
+                    }
+                    else {
+                        window.setTimeout(function() { self.hide(); }, 100);
+                    }
+                    self.setDate(selectedDate);
+ 
                     return;
                 }
                 else if ($.hasClass(target, 'pika-prev')) {
@@ -256,12 +314,7 @@
                 }
             }
             if (!$.hasClass(target, 'pika-select')) {
-                if (e.preventDefault) {
-                    e.preventDefault();
-                } else {
-                    e.returnValue = false;
-                    return false;
-                }
+                $.Event.cancel(e);
             } else {
                 self._c = true;
             }
@@ -283,7 +336,7 @@
         self._onInputChange = function(e) {
             if (e.firedBy === self) return;
  
-            var date = new Date(Date.parse(opts.field.value));
+            var date = string2Date(opts.field.value);
             self.setDate(isDate(date) ? date : null);
             if (!self._v) {
                 self.show();
@@ -299,7 +352,7 @@
         };
 
         self._onInputBlur = function() {
-            if (!self._c) {
+            if ( !self._c ) {
                 self._b = window.setTimeout(function() {
                     self.hide();
                 }, 50);
@@ -327,7 +380,7 @@
             }
             while ((pEl = pEl.parentNode));
 
-            if (self._v && target !== opts.trigger) {
+            if (self._v && target !== opts.trigger && !opts.careTime) {
                 self.hide();
             }
         };
@@ -343,7 +396,7 @@
             $.Event.addEvent(opts.field, 'change', self._onInputChange);
 
             if (!opts.defaultDate) {
-                opts.defaultDate = new Date(Date.parse(opts.field.value));
+                opts.defaultDate = string2Date(opts.field.value);
                 opts.setDefaultDate = true;
             }
         }
@@ -411,6 +464,9 @@
                 opts.yearRange = Math.min(opts.yearRange, 50);
             }
 
+            if(opts.careTime) {
+                opts.format += opts.format.length == 10 ? ' hh:mm:ss' : "";
+            }
             return opts;
         },
 
@@ -429,7 +485,7 @@
                 return this.draw();
             }
             if (typeof date === 'string') {
-                date = new Date(Date.parse(date));
+                date = string2Date(date);
             }
             if (!isDate(date)) {
                 return;
@@ -445,13 +501,19 @@
             }
 
             this._d = new Date(date.getTime());
-            setToStartOfDay(this._d);
+            if(!this._o.careTime) {
+                setToStartOfDay(this._d);
+            } else {
+                this._hour = this._d.getHours();
+                this._minute = this._d.getMinutes();
+                this._second= this._d.getSeconds();
+            }
             this.gotoDate(this._d);
 
             if (this._o.field) {
                 this._o.field.value = this.toString();
-                fireEvent(this._o.field, 'change', { firedBy: this });
             }
+
             if (!preventOnSelect && typeof this._o.onSelect === 'function') {
                 this._o.onSelect.call(this, this.getDate());
             }
@@ -523,19 +585,36 @@
             }
 
             this.el.innerHTML = renderTitle(this) + this.render(this._y, this._m);
+            if(opts.careTime) {
+                this.el.innerHTML += renderTime(opts);
+                var self = this;
+                var $ranges = $('.timeAera input', self.el);
+                setSelectdTime($ranges, self);
+
+                $('.timeAera button', self.el).click(function(){
+                    var _time = getSelectdTime( $ranges );
+                    if( $.isNullOrEmpty(self._o.field.value) ) {
+                        self._o.field.value = new Date().format(opts.format);
+                    }
+                    self._o.field.value = self._o.field.value.split(" ")[0] + " " + _time;
+                    self._o.field.focus();
+
+                    var date = string2Date(opts.field.value);
+                    self._hour = date.getHours();
+                    self._minute = date.getMinutes();
+                    self._second = date.getSeconds();
+
+                    window.setTimeout(function() {
+                        self.hide();
+                    }, 50);
+                });
+            }
 
             this.adjustPosition();
             if(opts.field.type !== 'hidden') {
                 window.setTimeout(function() {
                     opts.trigger.focus();
                 }, 1);
-            }
-
-            if (typeof this._o.onDraw === 'function') {
-                var self = this;
-                window.setTimeout(function() {
-                    self._o.onDraw.call(self);
-                }, 0);
             }
         },
 
@@ -631,6 +710,7 @@
                 $(this.el).removeClass('is-hidden');
                 this._v = true;
                 this.draw();
+
                 if (typeof this._o.onOpen === 'function') {
                     this._o.onOpen.call(this);
                 }
@@ -644,6 +724,7 @@
                 this.el.style.cssText = '';
                 $(this.el).addClass('is-hidden');
                 this._v = false;
+
                 if (v !== undefined && typeof this._o.onClose === 'function') {
                     this._o.onClose.call(this);
                 }

@@ -1,4 +1,6 @@
-/*
+
+
+/*  AJAX相关封装
     $.ajax({
         url : url,
         method : "GET",
@@ -34,8 +36,8 @@
         request.onresult = arg.onresult || request.onresult;
         request.onsuccess = arg.onsuccess || request.onsuccess;
         request.onexception = arg.onexception || function(errorMsg) {
-                // alert(errorMsg.description); // 遇到异常却看不到任何信息，可尝试放开这里的注释
-            };
+            // alert(errorMsg.description); // 遇到异常却看不到任何信息，可尝试放开这里的注释
+        };
 
         request.send();
     };
@@ -262,7 +264,7 @@
          
             for(var name in this.params) {
                 var value = this.params[name];
-                if(value) {
+                if( !$.isNullOrEmpty(value) ) {
                     var paramNode = $.XML.createNode(_XML_NODE_REQUEST_PARAM);
                     paramNode.appendChild($.XML.appendCDATA(_XML_NODE_REQUEST_NAME, name));
                     paramNode.appendChild($.XML.appendCDATA(_XML_NODE_REQUEST_VALUE, value));
