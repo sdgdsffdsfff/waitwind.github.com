@@ -69,11 +69,10 @@
         &lt;/profile>
       </pre>
   </li>
-  <li>5. 由于oracle的驱动程序（ojdbc-1.4G.jar）在各个maven的中心下载不到，需要自己下载，下载后自己deploy到本地mavn库，如果不用oracle可以在jinhe-tss/webapp/pom.xml里去掉该依赖。（从oracle数据库同步账号等信息时会用到该驱动） </li>
+  <li>5. 由于oracle的驱动程序（ojdbc-1.4G.jar）在各个maven的中心库下载不到，需要自己下载，下载后自己deploy到本地mavn库，如果不用oracle可以在jinhe-tss/dm/pom.xml里去掉该依赖。</li>
   <li>6. 在jinhe-tss目录下执行 <b>mvn clean install  -Dmaven.test.skip=true </b> 进行打包</li>
   <li>7. 打包完成后从jinhe-tss/webapp/target/tss.war包到tomcat的webapps目录下，并启动tomcat</li>
   <li>8. 打开浏览器(chrome,firefox,IE11)进行访问, http://127.0.0.1:8080/tss/index.html, 默认系统账号 Admin / 123456 </li>
-  <li>9. 打开jinhe-tss/um/pom.xml, 去掉build/plugins下的maven-assembly-plugin的注释（默认被注释了）, 然后在jinhe-tss/um目录下执行 <b> mvn clean compile assembly:single </b> 进行jar打包，完成后将打好的tss-base-3.0.0.jar包发布到本地maven库，通过执行<br/><b> mvn install:install-file -DgroupId=com.jinhe.tss -DartifactId=tss-base -Dversion=3.0.0 -Dpackaging=jar -Dfile=D:/project/TSS/jinhe-tss/um/target/tss-base-3.0.0.jar </b>，这个后续DMS打包时会用到。</li>
 </ul>
 
 <br>
@@ -86,12 +85,16 @@
 </ul>
 
 <br>
-<h2>三、DMS安装说明</h2>
+<h2>三、基于TSS开发新应用</h2>
 <ul>
   <li>1. 先完成TSS的安装 </li>
-  <li>2. clone最新的源码到本地（https://github.com/waitwind/jinhe-dm.git），或直接下载<a href="https://github.com/waitwind/jinhe-dm/archive/master.zip">DMS压缩包</a></li>
-  <li>3. 在MySQL创建一个名为dms的数据库，并导入初始化数据库（jinhe-dm/sql/db_mysql_init.sql）到该库</li>
-  <li>4. 打开jinhe-dm/pom.xml, 修改打包配置
+  <li>9. 打开jinhe-tss/um/pom.xml, 去掉build/plugins下的maven-assembly-plugin的注释（默认被注释了）, 然后在jinhe-tss/um目录下执行 <b> mvn clean compile assembly:single </b> 进行jar打包，完成后将打好的tss-base-3.0.0.jar包发布到本地maven库，通过执行<br/><b> mvn install:install-file -DgroupId=com.jinhe.tss -DartifactId=tss-base -Dversion=3.0.0 -Dpackaging=jar -Dfile=D:/project/TSS/jinhe-tss/um/target/tss-base-3.0.0.jar </b>，这个后续DMS打包时会用到。</li>
+
+  <li>2. clone最新的源码到本地（https://github.com/waitwind/jinhe-demo.git），或直接下载<a href="https://github.com/waitwind/jinhe-demo/archive/master.zip">DMS压缩包</a></li>
+  <li>1. 在jinhe-demo目录下执行 <b>mvn clean eclipse:eclipse</b>，完成后导入jinhe-demo项目到Eclipse </li>
+  <li>2. 在jinhe-demo目录下执行 <b>mvn clean test </b> 可以启动单元测试</li>
+  <li>3. 在MySQL创建一个名为demo的数据库，并导入初始化数据库（jinhe-demo/sql/db_mysql_init.sql）到该库</li>
+  <li>4. 打开jinhe-demo/pom.xml, 修改打包配置
       <pre style="width:80%;">
         &lt;profile>
           &lt;id>dev&lt;/id>
@@ -105,16 +108,9 @@
       </pre>
   </li>
   <li>5. 由于oracle的驱动程序（ojdbc-1.4G.jar）在各个maven的中心下载不到，需要自己下载，下载后自己deploy到本地mavn库，或者直接放到tomcat下。
-  <li>6. 在jinhe-dm目录下执行 <b>mvn clean install  -Dmaven.test.skip=true </b> 进行打包</li>
-  <li>7. 打包完成后从jinhe-dm/target/dms.war包到tomcat的webapps目录下，并启动tomcat</li>
+  <li>6. 在jinhe-demo目录下执行 <b>mvn clean install  -Dmaven.test.skip=true </b> 进行打包</li>
+  <li>7. 打包完成后从jinhe-demo/target/dms.war包到tomcat的webapps目录下，并启动tomcat</li>
   <li>8. 打开浏览器(chrome,firefox,IE11)进行访问, http://127.0.0.1:8080/dms/login.html, 默认系统账号 Admin / 123456 </li>
-</ul>
-
-<br>
-<h2>四、导入DMS到Eclipse</h2>
-<ul>
-  <li>1. 在jinhe-dm目录下执行 <b>mvn clean eclipse:eclipse</b>，完成后导入jinhe-dm项目到Eclipse </li>
-  <li>2. 在jinhe-dm目录下执行 <b>mvn clean test </b> 可以启动单元测试</li>
 </ul>
 
 </div>
