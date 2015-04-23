@@ -6,13 +6,16 @@
 
     <title>它山石介绍</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="keywords" content="它山石，应用基础平台，应用整合，内容聚合，数据分析，数据挖掘，大数据"> 
+    <meta name="keywords" content="它山石，应用基础平台，门户，应用，内容, 聚合，数据分析，数据挖掘，大数据">
 
     <link rel="stylesheet" href="tools/normalize.css">
     <link rel="stylesheet" href="css.css">
 
     <style type="text/css">
-
+pre,code {
+    color: #f8f8f2;
+    background: #1e2328;
+}
 blockquote {
 	font-size: 15px;
 	background:#f9f9f9;
@@ -38,33 +41,13 @@ blockquote p {
 	list-style: circle;
 	padding-left: 30px; 
 }
-
     </style>
 
-<script src="http://s4.cnzz.com/z_stat.php?id=1253705547&web_id=1253705547" language="JavaScript"></script>
 </head>
 
 <body>
 
-<div class="github">
-  <a href="https://github.com/waitwind">Fork me on GitHub</a>
-</div>
-
-<header id="header" class="header header-fixed">
-    <div class="container" >
-        <nav>
-            <ul class="nav subdued">
-                <li><a class="subdued" href="index.html">TSS</a></li>
-                <li><a class="subdued" href="dms.html">DMS</a></li>
-                <li><a class="subdued" href="tssJS.html">tssJS</a></li>
-            </ul>
-        </nav>
-        
-        <a href="http://waitwind.github.com" class="brand">
-            <b class="forename">它山石</b><b class="surname">应用基础平台</b>
-        </a>
-    </div>
-</header>
+<header id="header" class="header header-fixed"></header>
 
 <article>
 <header class="articleHeader">
@@ -242,37 +225,11 @@ DM的主要功能点：
 </div>
 
 </div>
-<a class="btnToTop btn btn-plain" href="#" id="btnToTop">Top <i class="iconToTop"></i></a>
 </article>
 
 
 <script src="tools/headroom.js"></script>
-<script>
-(function() {
-    var header = new Headroom(document.querySelector("#header"), {
-        tolerance: 5,
-        offset : 205,
-        classes: {
-          initial : "slide",
-          pinned  : "slide-reset",
-          unpinned: "hideTop"
-        }
-    });
-    header.init();
-
-    var btnToTopHeadroom = new Headroom(document.getElementById("btnToTop"), {
-        tolerance : 0,
-        offset : 500,
-        classes : {
-            initial : "slide",
-            pinned  : "slide-reset",
-            unpinned: "hideBottom"
-        }
-    });
-
-    btnToTopHeadroom.init();
-
-}());
-</script>
+<script src="tools/tssJS.js"></script>
+<script src="common.js"></script>
 </body>
 </html>

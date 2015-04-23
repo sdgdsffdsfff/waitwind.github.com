@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>TSS&DMS安装说明</title>
+  <title>TSS安装说明</title>
   <meta name="viewport" content="width=device-width">
-  <meta name="keywords" content="它山石，应用基础平台，应用整合，内容聚合，数据分析，数据挖掘，大数据">
+  <meta name="keywords" content="它山石，应用基础平台，门户，应用，内容, 聚合，数据分析，数据挖掘，大数据">
   
   <link rel="stylesheet" href="tools/normalize.css">
   <link rel="stylesheet" href="css.css">
@@ -14,38 +14,18 @@
         line-height: 28px;
     }
     .main li pre {
-        font-size: 16px;
+        font-size: 15px;
     }
   </style>
-  <script src="http://s4.cnzz.com/z_stat.php?id=1253705547&web_id=1253705547"></script>
 </head>
 <body>
 
-<div class="github">
-  <a href="https://github.com/waitwind">Fork me on GitHub</a>
-</div>
-
-<header id="header" class="header header-fixed">
-    <div class="container" >
-        <nav>
-            <ul class="nav subdued">
-                <li><a class="subdued" href="index.html">TSS</a></li>
-                <li><a class="subdued" href="dms.html">DMS</a></li>
-                <li><a class="subdued" href="tssJS.html">tssJS</a></li>
-            </ul>
-        </nav>
-        
-        <a href="http://waitwind.github.com" class="brand">
-            <b class="forename">它山石</b><b class="surname">应用基础平台</b>
-        </a>
-    </div>
-</header>
+<header id="header" class="header header-fixed"></header>
 
 <article>
 <header class="articleHeader">
     <div class="container article-title">
         <h1>它山之石，可以攻玉；它山之石，可以试错。</h1>
-        <p>它山石，让应用开发更简单、更高效！</p>
     </div>
 </header>
 
@@ -54,20 +34,18 @@
 <h2>一、TSS安装说明</h2>
 <ul>
   <li>1. 运行环境：JDK1.6 或 JDK1.7 + Tomcat7 + MySQL，及 Maven3，在部署TSS前先安装好。</li>
-  <li>2. clone最新的源码到本地（https://github.com/waitwind/jinhe-tss.git），或直接下载<a href="https://github.com/waitwind/jinhe-tss/archive/master.zip">TSS压缩包</a></li>
-  <li>3. 在MySQL创建一个名为tss的数据库，并导入初始化数据库（jinhe-tss/webapp/sql/db_mysql_init.sql）到该库</li>
+  <li>2. 使用Git clone最新的源码到本地（https://github.com/waitwind/jinhe-tss.git），或直接下载<a href="https://github.com/waitwind/jinhe-tss/archive/master.zip">TSS压缩包</a></li>
+  <li>3. 在MySQL创建一个名为tss的数据库，并导入初始化数据库（jinhe-tss/webapp/sql/_mysql_tss_init.sql）到该库</li>
   <li>4. 打开jinhe-tss/pom.xml, 修改打包配置
       <pre style="width:80%;">
         &lt;profile>
-          &lt;id>dev&lt;/id>
+            &lt;id>dev&lt;/id>
             ......
             &lt;db.username>你的MYSQL账号&lt;/db.username>
             &lt;db.password>你的MYSQL密码&lt;/db.password>
             &lt;db.url>127.0.0.1:3306/tss&lt;/db.url>
             &lt;tomcat.url>127.0.0.1:8080&lt;/tomcat.url>
-            ......
-        &lt;/profile>
-      </pre>
+        &lt;/profile></pre>
   </li>
   <li>5. 由于oracle的驱动程序（ojdbc-1.4G.jar）在各个maven的中心库下载不到，需要自己下载，下载后自己deploy到本地mavn库，如果不用oracle可以在jinhe-tss/dm/pom.xml里去掉该依赖。</li>
   <li>6. 在jinhe-tss目录下执行 <b>mvn clean install  -Dmaven.test.skip=true </b> 进行打包</li>
@@ -75,7 +53,6 @@
   <li>8. 打开浏览器(chrome,firefox,IE11)进行访问, http://127.0.0.1:8080/tss/index.html, 默认系统账号 Admin / 123456 </li>
 </ul>
 
-<br>
 <h2>二、导入TSS到Eclipse</h2>
 <ul>
   <li>1. 在jinhe-tss目录下执行 <b>mvn clean eclipse:eclipse</b>，完成后导入jinhe-tss目录下所有子项目到Eclipse </li>
@@ -85,66 +62,26 @@
 </ul>
 
 <br>
+<br>
+
+<!--
 <h2>三、基于TSS开发新应用</h2>
 <ul>
   <li>1. 先完成TSS的安装 </li>
-  <li>9. 打开jinhe-tss/um/pom.xml, 去掉build/plugins下的maven-assembly-plugin的注释（默认被注释了）, 然后在jinhe-tss/um目录下执行 <b> mvn clean compile assembly:single </b> 进行jar打包，完成后将打好的tss-base-3.0.0.jar包发布到本地maven库，通过执行<br/><b> mvn install:install-file -DgroupId=com.jinhe.tss -DartifactId=tss-base -Dversion=3.0.0 -Dpackaging=jar -Dfile=D:/project/TSS/jinhe-tss/um/target/tss-base-3.0.0.jar </b>，这个后续DMS打包时会用到。</li>
+  <li>2. 打开jinhe-tss/um/pom.xml, 去掉build/plugins下的maven-assembly-plugin的注释（默认被注释了）, 然后在jinhe-tss/um目录下执行 <b> mvn clean compile assembly:single </b> 进行jar打包，完成后将打好的tss-base-3.2.jar包发布到本地maven库，通过执行<br/><b> mvn install:install-file -DgroupId=com.jinhe.tss -DartifactId=tss-base -Dversion=3.2 -Dpackaging=jar -Dfile=D:/project/TSS/jinhe-tss/um/target/tss-base-3.2.jar </b>，这个后续Demo打包时会用到。</li>
 
-  <li>2. clone最新的源码到本地（https://github.com/waitwind/jinhe-demo.git），或直接下载<a href="https://github.com/waitwind/jinhe-demo/archive/master.zip">DMS压缩包</a></li>
-  <li>1. 在jinhe-demo目录下执行 <b>mvn clean eclipse:eclipse</b>，完成后导入jinhe-demo项目到Eclipse </li>
-  <li>2. 在jinhe-demo目录下执行 <b>mvn clean test </b> 可以启动单元测试</li>
-  <li>3. 在MySQL创建一个名为demo的数据库，并导入初始化数据库（jinhe-demo/sql/db_mysql_init.sql）到该库</li>
-  <li>4. 打开jinhe-demo/pom.xml, 修改打包配置
-      <pre style="width:80%;">
-        &lt;profile>
-          &lt;id>dev&lt;/id>
-            ......
-            &lt;db.username>你的MYSQL账号&lt;/db.username>
-            &lt;db.password>你的MYSQL密码&lt;/db.password>
-            &lt;db.url>127.0.0.1:3306/dms&lt;/db.url>
-            &lt;tomcat.url>127.0.0.1:8080&lt;/tomcat.url>
-           ......
-        &lt;/profile>
-      </pre>
-  </li>
-  <li>5. 由于oracle的驱动程序（ojdbc-1.4G.jar）在各个maven的中心下载不到，需要自己下载，下载后自己deploy到本地mavn库，或者直接放到tomcat下。
-  <li>6. 在jinhe-demo目录下执行 <b>mvn clean install  -Dmaven.test.skip=true </b> 进行打包</li>
-  <li>7. 打包完成后从jinhe-demo/target/dms.war包到tomcat的webapps目录下，并启动tomcat</li>
-  <li>8. 打开浏览器(chrome,firefox,IE11)进行访问, http://127.0.0.1:8080/dms/login.html, 默认系统账号 Admin / 123456 </li>
+  <li>3. 在jinhe-tss/_demo目录下执行 <b>mvn clean eclipse:eclipse</b>，完成后导入_demo项目到Eclipse </li>
+  <li>4. 在MySQL创建一个名为demo的数据库，运行项目里的com.jinhe.tss.demo.InitDatabase初始化该库</li>
+  <li>5. 后续打包发布等步骤参考TSS的安装过程</li>
 </ul>
+-->
 
 </div>
-<a class="btnToTop btn btn-plain" href="#" id="btnToTop">Top <i class="iconToTop"></i></a>
 </article>
 
-
+<script src="tools/tssJS.js"></script>
 <script src="tools/headroom.js"></script>
-<script>
-(function() {
-    var header = new Headroom(document.querySelector("#header"), {
-        tolerance: 5,
-        offset : 205,
-        classes: {
-          initial : "slide",
-          pinned  : "slide-reset",
-          unpinned: "hideTop"
-        }
-    });
-    header.init();
-
-    var btnToTopHeadroom = new Headroom(document.getElementById("btnToTop"), {
-        tolerance : 0,
-        offset : 500,
-        classes : {
-            initial : "slide",
-            pinned  : "slide-reset",
-            unpinned: "hideBottom"
-        }
-    });
-
-    btnToTopHeadroom.init();
-
-}());
-</script>
+<script src="common.js"></script>
+ 
 </body>
 </html> 

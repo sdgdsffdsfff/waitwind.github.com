@@ -1,5 +1,5 @@
 @media screen and (min-width:40em) {
-    body { font-size: 100% }
+    body { font-size: 100%; }
 }
 @media screen and (min-width:50em) {
     body { font-size: 108% }
@@ -9,13 +9,14 @@ pre,code {
     text-align: left;
     white-space: pre;
     word-spacing: normal;
-    color: #f8f8f2;
-    background: #1e2328;
+    background: #f7f7f9;
     border-radius: 5px;
+    border: 1px solid #e1e1e8;
+    font-family: Arial, sans-serif, "Microsoft Yahei";
 }
 pre {
     overflow: auto;
-    padding: 1em;
+    padding: .5em;
     margin: 1.5em 0
 }
 code, pre {
@@ -231,7 +232,7 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
 
 body {
   font-size: 20px;
-  font-family: "Microsoft Yahei","Hiragino Sans GB","冬青黑体简体中文 w3",STXihei, "华文细黑","微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif
+  font-family: "Microsoft Yahei","Hiragino Sans GB","冬青黑体简体中文 w3",STXihei, "华文细黑","微软雅黑", SimSun, "宋体", sans-serif
 }
 h2 {
   font-size: 20px;
@@ -262,7 +263,7 @@ a.subdued:hover { color: #fff }
 
 .main { margin-top: 1.5em }
 
-.articleHeader { background-color: #4ecdc4; padding: 2.5em 0 3px 0 }
+.articleHeader { background-color: #4ecdc4; padding: 4em 0 3px 0 }
 .article-title { text-align: center }
 
 @media screen and (min-width:40em) {
