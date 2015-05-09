@@ -1,9 +1,0 @@
-.tssJS-bubble {  
-	position: absolute; background-color: #292929; color: white; border-radius: 10px;
-	display: table; /* 使垂直居中 */  
-}
-.tssJS-bubble p { display: table-cell; padding: 5px; text-align: center; word-break:break-all; }
-/* 箭头 */ 
-.tssJS-bubble:after { content: ''; width: 0; height: 0; border: 15px solid transparent; position: absolute; }
-.tssJS-bubble-arrow-top:after { border-bottom-color: #292929; bottom: 100%; left: 50%; margin-left: -15px; }
-.tssJS-bubble-arrow-bottom:after { border-top-color: #292929; top: 100%;    left: 50%; margin-left: -15px; } 

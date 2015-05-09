@@ -16,6 +16,7 @@
                 '<li><a class="subdued" href="dms.html">DMS</a></li>' +
                 '<li><a class="subdued" href="install.html">安装</a></li>' +
                 '<li><a class="subdued" href="help.html">帮助</a></li>' +
+                '<li><a class="subdued" href="milestones.html">开发记事</a></li>' +
             '</ul>' +
         '</nav>' +
         '<a href="http://waitwind.github.com" class="brand">' +

@@ -142,13 +142,16 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.5);
 }
+.live > li > a:hover {
+  color: #FFF;
+}
 .live > li {
   font-size: 17px;
-  letter-spacing: 6px;
+  letter-spacing: 1px;
   list-style: none;
   position: relative;
-  padding: 0 0 0 2em;
-  margin: 0 0 5px 10px;
+  padding: 0 0 0 1.2em;
+  margin: 0 0 5px 5px;
   -webkit-transition: .12s;
           transition: .12s;
 }
@@ -164,9 +167,6 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
   -webkit-transition: .5s;
           transition: .5s;
 }
-.live > li > a:hover {
-  color: #FFF;
-}
 .live > li:hover::before {
   -webkit-transform: scale(2);
       -ms-transform: scale(2);
@@ -176,17 +176,10 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
   -webkit-transition: .1s;
           transition: .1s;
 }
-
 .live {
-  width: 70%;
-  text-align: left;
-  vertical-align: top;
-  color: rgba(255, 255, 255, 0.5);
+  width: 100%;
   border-radius: 5px;
-  padding: 5px;
-  margin: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-  background: rgba(0, 0, 0, 0.2);
+  padding: 3px;
   background-image: -webkit-radial-gradient(circle, #3c3b52 0%, #252233 80%);
   background-image: radial-gradient(circle, #3c3b52 0%, #252233 80%);
 }
@@ -231,6 +224,7 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
 
 
 body {
+  color: #333333;
   font-size: 20px;
   font-family: "Microsoft Yahei","Hiragino Sans GB","冬青黑体简体中文 w3",STXihei, "华文细黑","微软雅黑", SimSun, "宋体", sans-serif
 }
@@ -247,7 +241,7 @@ h2 {
 
 .nav { margin-bottom: 0; float: right }
 .nav>li { display: inline-block }
-.nav>li>a { display: inline-block; padding: 1em; border: 0 }
+.nav>li>a { display: inline-block; padding: 1em .5em; border: 0 }
 
 /* 淡化字体，并在小屏幕时隐藏 */
 .subdued { color: rgba(255,255,255,0.6); text-shadow: none; display: none; }
