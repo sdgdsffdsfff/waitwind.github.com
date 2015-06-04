@@ -22,34 +22,12 @@
 
 <div class="container block main" role="main" >
 
+<h2>编写中。。。。。。,预计6月22号前能完工</h2>
+
+<!--
 <h2>一、添加数据源</h2> 
 <p>
-  在开始创建数据报表之前，我们需要先维护好报表的数据源信息，按以下步骤添加：<br>
-  
-  1、进入jinhe-dm\src\main\resources; 如果是已经打包发布到tomcat了,则进入tomcat的webapps\dms\WEB-INF\classes目录
-  2、进入database目录，新建一个properties文件，加入如下数据库连接信息
-  <pre>
-    db.connection.driver_class  com.mysql.jdbc.Driver
-    db.connection.username root
-    db.connection.password 800best@com
-    db.connection.url  jdbc:mysql://localhost:3306/dms
-  </pre>
-
-  3、进入tss目录，打开cache.xml, 新增加一个连接池配置。
-  <pre>
-    &lt;strategy code="connpool-XXX" name="DB连接池-XXX"> 
-      &lt;poolClass>com.jinhe.tss.cache.extension.ReusablePool&lt;/poolClass>  
-      &lt;poolSize>10&lt;/poolSize>  
-      &lt;cyclelife>43200000&lt;/cyclelife>  
-      &lt;interruptTime>1000&lt;/interruptTime>  
-      &lt;initNum>0&lt;/initNum>  
-      &lt;customizerClass>com.jinhe.tss.framework.persistence.connpool.ConnPoolCustomizer&lt;/customizerClass>  
-      &lt;paramFile>database/your.properties&lt;/paramFile>  &lt;!-- 第一步新建好的数据库连接信息文件 -->
-    &lt;/strategy>
-  </pre>
-  4、重新打包; 在tomcat下更改的话则需要重新启动tomcat。<br>
-  5、打开右上角菜单里的“系统辅助” --> “系统参数”，右键点击“数据源列表”，选择“新建参数项”按钮。按下图把新建的数据源添加到数据源列表。
-     
+ 
 
 </p>
 
@@ -64,6 +42,16 @@
 </div>
 </article>
 
+
+1、用户、角色、权限
+   用户同步、资源注册、权限转授
+2、报表维护、模板制作、访问统计
+3、数据录入
+4、系统参数、定时任务、日志、cache
+5、文章、栏目、索引发布
+6、门户组件、门户、菜单、门户发布
+添加数据源
+-->
 
 <script src="tools/headroom.js"></script>
 <script src="tools/tssJS.js"></script>
