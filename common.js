@@ -11,16 +11,15 @@
     $("#header").html('<div class="container" >' +
         '<nav>' +
             '<ul class="nav subdued">' +
-                '<li><a class="subdued" href="index.html">TSS</a></li>' +
+                '<li><a class="subdued" href="tss.html">TSS</a></li>' +
                 '<li><a class="subdued" href="tssJS.html">tssJS</a></li>' +
-                '<li><a class="subdued" href="dms.html">DMS</a></li>' +
                 '<li><a class="subdued" href="install.html">安装</a></li>' +
                 '<li><a class="subdued" href="help.html">帮助</a></li>' +
                 '<li><a class="subdued" href="milestones.html">开发记事</a></li>' +
             '</ul>' +
         '</nav>' +
-        '<a href="http://waitwind.github.com" class="brand">' +
-            '<b class="forename">它山石</b><b class="surname">基础平台</b>' +
+        '<a href="index.html" class="brand">' +
+            '<b class="forename">它山石</b><b class="surname">数据管理平台</b>' +
         '</a>' +
     '</div>');
 

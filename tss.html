@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  	<meta charset="UTF-8">
+
+    <title>它山石介绍</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="keywords" content="它山石，基础平台，门户，应用，内容, 聚合，数据引擎，数据分析，数据挖掘，大数据">
+
+    <link rel="stylesheet" href="tools/normalize.css">
+    <link rel="stylesheet" href="css.css">
+
+    <style type="text/css">
+pre,code {
+  border: 1px solid #ccc
+}
+blockquote {
+	font-size: 15px;
+	background:#f9f9f9;
+	border-left:10px solid #ccc;
+	margin:1.5em 10px;
+	padding:.5em 10px;
+	quotes:"\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+	color:#ccc;
+	content:open-quote;
+	font-size:3em;
+	line-height:.1em;
+	margin-right:.25em;
+	vertical-align:-.4em;
+}
+blockquote p {
+	display:inline;
+}
+
+.commonList {
+	font-size: 15px;
+	list-style: circle;
+	padding-left: 30px; 
+  line-height: 28px;
+}
+
+    </style>
+
+</head>
+
+<body>
+
+<header id="header" class="header header-fixed"></header>
+
+<article>
+<header class="articleHeader">
+    <div class="container article-title">
+        <h1>它山之石，可以攻玉；它山之石，可以试错。</h1>
+        <p> 联系方式：llrtss@163.com</p>
+    </div>
+</header>
+
+
+
+<div class="container block main" role="main" >
+
+<h2>它山石 是什么？</h2>
+<img src="images/1.png" style="float:right; margin-left:10px; margin-bottom:10px; width:400px; height:350px;"/>
+<p>它山石（简称TSS）是一个开源的数据处理引擎，提供在线数据查询、数据分析、数据清洗、数据采集、对外数据服务、数据门户等功能，可全方位管理数据的生成、分析、展示和流通。
+</p>
+<p>一个信息化的企业日常活动通常包含人、流程、数据这三个要素。人通过各类应用系统（ERP、CRM、各种行业软件等）发起流程，如销售流程、采购流程等，流程再通过应用系统对数据进行读写。数据随着时间不断沉淀增长，在现今的大数据时代正成为各个公司重要的无形资产。而各个应用系统通常只能分析由自身系统产生的数据，很难有哪个业务系统能全方位、综合性的分析企业的全盘数据。TSS的目的就是要打通人和数据之间的联通，降低挖掘数据价值的难度和成本，让数据可视化，让信息流动起来。正像搜索引擎之于Internet，它山石立志做结构化数据领域的数据处理引擎，挖掘无处不在的沉淀数据以焕发价值。
+</p>
+<p>TSS同时也是一个应用基础平台，通过定制数据录入表单及控制流程，快速的开发业务流程。除此还提供专门的技术框架、功能组件及常见问题解决方案，基于此，能快速、高效、低成本搭建具体业务系统，开发者可以专注于业务逻辑的实现，无需为纷杂多变的各种软件技术而分心。</p>
+
+<blockquote>
+<b>它山石特色：</b>
+ <br/>1、设计高度模块化，通用灵活，可任意组合复用
+ <br/>2、流程、报表、门户、资源，直接在线开发、在线发布
+ <br/>3、权限模型灵活，对业务对象进行严格的权限控制
+ <br/>4、Portal聚合一切、提供统一入口（支持单点登录），实现一站式访问
+ <br/>5、前沿的技术：HTML5 移动访问
+</blockquote>
+
+<h2 id="p2"> TSS的实例展示</h2>
+<div class="accordian">
+    <ul>
+        <li><h2>基本图表展示</h2>     <img src="images/tsspic/dms1.png"/></li>
+        <li><h2>二次开发定制报表</h2>      <img src="images/tsspic/dms2.png"/></li>
+        <li><h2>数据提取+图表模板展示</h2> <img src="images/tsspic/dms3.png"/></li>
+        <li><h2>数据门户</h2>              <img src="images/tsspic/dms4.png"/></li>
+        <li><h2>丰富的展示效果</h2>        <img src="images/tsspic/dms5.png"/></li>
+    </ul>
+</div>
+<br/>
+
+<h2>它山石业务架构</h2>
+<img src="images/2.png" style="margin-left:100px; margin-bottom:10px;">
+
+<h2>它山石数据引擎思维导图</h2>
+<img src="images/dms.png" style=" margin-bottom:10px;">
+
+<br>
+<h2>它山石技术架构</h2>
+<p>
+<img src="images/3.png" style="float:right; margin-left:10px; margin-bottom:10px; width:460px; height:500px;"/>
+
+主要开发语言为Java和JavaScript，后端框架底层采用JPA2.0/JDBC + Spring，前端为HTML5。
+
+  <ul class="commonList">
+    <li>前后端交换一律采用AJAX，数据格式同时支持XML和JSON  </li>
+  	<li>前端使用tssJS框架，提供常用DOM操作、事件处理、AJAX交互、数据处理等核心封装，统一的界面样式布局，及菜单、Tree、Grid、Form、Layout、Panel、Message等常用组件</li>
+    <li>Spring MVC将后端服务发布成restful风格的web服务 </li>
+    <li>Spring提供IOC容器及AOP机制，对业务对象的生成、依赖、事务、权限、日志、缓存等进行统一管理</li>
+    <li>使用Freemarker作为模板解析引擎，应用于门户、数据图表等支持模板化二次定制开发</li>
+    <li>使用Lucene作为文档化数据的搜索引擎</li>
+    <li>持久层采用JPA2.0，支持多数据源, 数据库支持MySQL、H2、Oracle等</li>
+  </ul>
+</p>
+
+<blockquote>
+<b>框架特色：</b>
+<br/>1、前后端框架为自主原创，精致、实用、高效、易扩展、易维护
+<br/>2、前后端充分解耦合，开发时前后独立进行、互不依赖
+</blockquote>
+
+
+<br>
+<h2>系统质量：可参考<a href="demo/clover/index.html" target="_blank">《它山石代码测试覆盖率》</a></h2>
+
+<h2>Licensed under the <a href="http://www.opensource.org/licenses/gpl-license.php">GPL License</a></h2>
+
+<h2>下载 和 <a href="install.html" target="_blank">安装</a>，获得帮助：<a href="mailTo:llrtss@163.com">llrtss@163.com</a></h2>
+<div class="downloads" style="margin-bottom:1em">
+    <div class="grid">
+        <div class="grid-item one-half">
+        	<a class="btn btn-secondary btn--full" href="https://github.com/waitwind/jinhe-tss">
+        		当前开发中版本 <span class="subdued">(2.0MB)</span>
+        	</a>
+        </div>
+        <div class="grid-item one-half">
+        	<a class="btn btn-secondary btn--full" href="https://github.com/waitwind/jinhe-tss/archive/3.2.zip">TSS 3.3 （2015夏至版） 
+        		<span class="subdued">(2.0MB)</span>
+        	</a>
+        </div>
+    </div>
+</div>
+
+</div>
+</article>
+
+
+<script src="tools/headroom.js"></script>
+<script src="tools/tssJS.js"></script>
+<script src="common.js"></script>
+</body>
+</html>
