@@ -224,10 +224,10 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,pre,fieldset,form,legend {
 
 /* 幻灯片播放 */
 #movieBox * { margin:0; padding:0; list-style:none; }
-#movieBox { width:1000px; height:600px; margin:20px auto; background:#333; position:relative; overflow:hidden;}
+#movieBox { width:960px; height:600px; margin:20px auto; background:#333; position:relative; overflow:hidden;}
 #movieBox .picUl { width:9999px; position:absolute; left:0; top:0;}
 #movieBox .picUl li { float:left; position:relative; }
-#movieBox .picUl li img { width: 1000px; height: 600px; }
+#movieBox .picUl li img { width: 960px; height: 600px; }
 #movieBox .picUl li  h2 {
   background: rgba(0, 0, 0, 0.5);
   position: absolute; right: 0; top: 0; 
