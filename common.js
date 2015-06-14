@@ -11,7 +11,7 @@
     $("#header").html('<div class="container" >' +
         '<nav>' +
             '<ul class="nav subdued">' +
-                '<li><a class="subdued" href="tss.html">TSS</a></li>' +
+                '<li><a class="subdued" href="index.html">TSS</a></li>' +
                 '<li><a class="subdued" href="tssJS.html">tssJS</a></li>' +
                 '<li><a class="subdued" href="install.html">安装</a></li>' +
                 '<li><a class="subdued" href="help.html">帮助</a></li>' +
