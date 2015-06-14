@@ -49,4 +49,68 @@
         }
     });
     btnToTopHeadroom.init();
+
+    if($('#movieBox').length) {
+        initMovie();
+    }
+    
 }());
+
+function initMovie() {
+    var movieBox = $('#movieBox')[0];
+    var picUl  = $('.picUl', movieBox)[0];
+    var picLis = $('li', picUl);
+    var switchTag = $('.switchTag li');
+    
+    function tab() {
+      switchTag.each(function(i, li) {
+        $(li).removeClass("active");
+      });
+      $(switchTag[now]).addClass("active");
+
+      startMove(picUl, -(now * picLis[0].offsetWidth));
+    }
+
+    function startMove(obj, picWidth) {
+      clearInterval(obj.timer)
+      obj.timer = setInterval(function(){
+         var currentLeft = parseInt( $(obj).css("left").replace("px", "") );
+         if(currentLeft == picWidth) {
+           clearInterval(obj.timer)
+         }
+         else { 
+            var speed = (picWidth - currentLeft) / 4;
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+            $(obj).css("left", (currentLeft + speed) + 'px');
+         }
+      }, 30)
+    }
+
+    var now = 0;
+    switchTag.each(function(i, li) {
+      li.index = i;
+      $(li).click(function() {
+        now = this.index;
+        tab();
+      });
+    });
+
+    $('.pre', movieBox).click( function() {
+      if(--now == -1) now = picLis.length;
+      tab();
+    });
+
+    var oNext = $('.next', movieBox)[0];
+    $(oNext).click( function() {
+      if(++now == picLis.length)  now = 0;
+      tab();
+    } );
+
+    var timer = setInterval(oNext.onclick, 3000) 
+    movieBox.onmouseover = function() {
+      clearInterval(timer)
+    }
+    movieBox.onmouseout = function() {
+      timer = setInterval(oNext.onclick, 3000) 
+    }
+  }
