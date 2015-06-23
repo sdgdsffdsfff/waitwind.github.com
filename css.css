@@ -302,3 +302,16 @@ a.subdued:hover { color: #fff }
 
 .btn-secondary { color: #fff; background-color: #ff6b6b; display: block }
 .btn-secondary:hover,.btn-secondary:focus,.btn-secondary:visited { background-color: #ff6b6b; }
+
+.live {
+  width:160px;
+  position: fixed;
+  right: 3px;
+  bottom: 3px;
+}
+
+@media only screen and (max-width: 1280px) {
+  .live {
+    display: none;
+  }
+}
