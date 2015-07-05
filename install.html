@@ -47,10 +47,9 @@
             &lt;tomcat.url>127.0.0.1:8080&lt;/tomcat.url>
         &lt;/profile></pre>
   </li>
-  <li>5. 由于oracle的驱动程序（ojdbc-1.4G.jar）在各个maven的中心库下载不到，需要自己下载，下载后自己deploy到本地mavn库，如果不用oracle可以在jinhe-tss/dm/pom.xml里去掉该依赖。</li>
-  <li>6. 在jinhe-tss目录下执行 <b>mvn clean install  -Dmaven.test.skip=true </b> 进行打包</li>
-  <li>7. 打包完成后从jinhe-tss/webapp/target/tss.war包到tomcat的webapps目录下，并启动tomcat</li>
-  <li>8. 打开浏览器(chrome,firefox,IE11)进行访问, http://127.0.0.1:8080/tss/index.html, 默认系统账号 Admin / 123456 </li>
+  <li>5. 在jinhe-tss目录下执行 <b>mvn clean install  -Dmaven.test.skip=true </b> 进行打包</li>
+  <li>6. 打包完成后从jinhe-tss/webapp/target/tss.war包到tomcat的webapps目录下，并启动tomcat</li>
+  <li>7. 打开浏览器(chrome,firefox,IE11)进行访问, http://127.0.0.1:8080/tss/index.html, 默认系统账号 Admin / 123456 </li>
 </ul>
 
 <h2>二、导入TSS到Eclipse</h2>
