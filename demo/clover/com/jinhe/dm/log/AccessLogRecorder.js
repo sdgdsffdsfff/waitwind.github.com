@@ -1,0 +1,10 @@
+var clover = new Object();
+
+// JSON: {classes : [{name, id, sl, el,  methods : [{sl, el}, ...]}, ...]}
+clover.pageData = {"classes":[{"el":66,"id":21984,"methods":[{"el":19,"sc":5,"sl":19},{"el":26,"sc":5,"sl":21},{"el":30,"sc":5,"sl":28},{"el":34,"sc":5,"sl":32},{"el":41,"sc":5,"sl":36}],"name":"AccessLogRecorder","sl":15},{"el":65,"id":21999,"methods":[{"el":64,"sc":9,"sl":44}],"name":"AccessLogRecorder.AnalyseLogOutputTask","sl":43}]}
+
+// JSON: {test_ID : {"methods": [ID1, ID2, ID3...], "name" : "testXXX() void"}, ...};
+clover.testTargets = {"test_101":{"methods":[{"sl":21},{"sl":28}],"name":"test1","pass":true,"statements":[{"sl":22},{"sl":25},{"sl":29}]},"test_19":{"methods":[{"sl":19},{"sl":21},{"sl":28},{"sl":32},{"sl":36},{"sl":44}],"name":"test","pass":true,"statements":[{"sl":22},{"sl":23},{"sl":25},{"sl":29},{"sl":33},{"sl":37},{"sl":38},{"sl":40},{"sl":45},{"sl":46},{"sl":47},{"sl":48},{"sl":49},{"sl":50},{"sl":51},{"sl":52},{"sl":53},{"sl":54},{"sl":55},{"sl":56},{"sl":57},{"sl":59},{"sl":62},{"sl":63}]},"test_54":{"methods":[{"sl":21},{"sl":28},{"sl":36},{"sl":44}],"name":"testReportDisplay","pass":true,"statements":[{"sl":22},{"sl":25},{"sl":29},{"sl":37},{"sl":38},{"sl":40},{"sl":45},{"sl":46},{"sl":47},{"sl":48},{"sl":49},{"sl":50},{"sl":51},{"sl":52},{"sl":53},{"sl":54},{"sl":55},{"sl":56},{"sl":57},{"sl":59},{"sl":62},{"sl":63}]},"test_74":{"methods":[{"sl":21},{"sl":28}],"name":"debugSQL","pass":true,"statements":[{"sl":22},{"sl":25},{"sl":29}]}}
+
+// JSON: { lines : [{tests : [testid1, testid2, testid3, ...]}, ...]};
+clover.srcFileLines = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [19], [], [101, 19, 54, 74], [101, 19, 54, 74], [19], [], [101, 19, 54, 74], [], [], [101, 19, 54, 74], [101, 19, 54, 74], [], [], [19], [19], [], [], [19, 54], [19, 54], [19, 54], [], [19, 54], [], [], [], [19, 54], [19, 54], [19, 54], [19, 54], [19, 54], [19, 54], [19, 54], [19, 54], [19, 54], [19, 54], [19, 54], [19, 54], [19, 54], [19, 54], [], [19, 54], [], [], [19, 54], [19, 54], [], [], []]

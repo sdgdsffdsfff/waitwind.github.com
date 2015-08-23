@@ -31,11 +31,11 @@
 
 <div class="container block main" role="main" >
 
-<h2>一、TSS安装说明</h2>
+<h2>一、TSS本地安装说明</h2>
 <ul>
   <li>1. 运行环境：JDK1.6 或 JDK1.7 + Tomcat7 + MySQL，及 Maven3，在部署TSS前先安装好。</li>
   <li>2. 使用Git clone最新的源码到本地（https://github.com/waitwind/jinhe-tss.git），或直接下载<a href="https://github.com/waitwind/jinhe-tss/archive/master.zip">TSS压缩包</a></li>
-  <li>3. 在MySQL创建一个名为tss的数据库，并导入初始化数据库（jinhe-tss/webapp/sql/_mysql_tss_init.sql）到该库</li>
+  <li>3. 在MySQL创建一个名为tss的数据库，并导入初始化数据库（jinhe-tss/webapp/sql/_mysql_tss_init.sql 或 demo_bi.sql.zip）到该库</li>
   <li>4. 打开jinhe-tss/pom.xml, 修改打包配置
       <pre style="width:80%;">
         &lt;profile>
@@ -50,6 +50,7 @@
   <li>5. 在jinhe-tss目录下执行 <b>mvn clean install  -Dmaven.test.skip=true </b> 进行打包</li>
   <li>6. 打包完成后从jinhe-tss/webapp/target/tss.war包到tomcat的webapps目录下，并启动tomcat</li>
   <li>7. 打开浏览器(chrome,firefox,IE11)进行访问, http://127.0.0.1:8080/tss/index.html, 默认系统账号 Admin / 123456 </li>
+  <li>8. 注：由于oracle的驱动程序（<a href="attach/ojdbc-14.jar">ojdbc-14.jar</a>）在各个maven的中心库下载不到，需要自己下载，下载后自己deploy到本地mavn库（mvn命令：<b>mvn install:install-file -DgroupId=ojdbc -DartifactId=ojdbc -Dversion=14 -Dpackaging=jar -Dfile=你下载的路径/ojdbc-14.jar</b>）；如果不用oracle，则可以在jinhe-tss/dm/pom.xml里去掉该依赖。</li>
 </ul>
 
 <h2>二、导入TSS到Eclipse</h2>

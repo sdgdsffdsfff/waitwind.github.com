@@ -13,6 +13,7 @@
             '<ul class="nav subdued">' +
                 '<li><a class="subdued" href="index.html">TSS</a></li>' +
                 '<li><a class="subdued" href="tssJS.html">tssJS</a></li>' +
+                '<li><a class="subdued" href="http://www.boubei.com">演示</a></li>' +
                 '<li><a class="subdued" href="install.html">安装</a></li>' +
                 '<li><a class="subdued" href="help.html">帮助</a></li>' +
                 '<li><a class="subdued" href="milestones.html">开发记事</a></li>' +

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
   	<meta charset="UTF-8">
 
     <title>它山石介绍</title>
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css.css">
 
     <style type="text/css">
+
 pre,code {
   border: 1px solid #ccc
 }
@@ -39,7 +40,7 @@ blockquote p {
 	font-size: 15px;
 	list-style: circle;
 	padding-left: 30px; 
-  line-height: 28px;
+    line-height: 28px;
 }
 
     </style>
@@ -54,70 +55,36 @@ blockquote p {
 <header class="articleHeader">
     <div class="container article-title">
         <h1>它山之石，可以攻玉；它山之石，可以试错。</h1>
-        <p> 联系方式：llrtss@163.com</p>
+        <p> be your own data hero! </p>
     </div>
 </header>
 
 <ul class="live">
   <li><a href="#p1">它山石是什么</a></li>
-  <li><a href="#p2">它山石特色</a></li>
-  <li><a href="#p3">它山石实例展示</a></li>
-  <li><a href="#p4">它山石软件架构</a></li>
-  <li><a href="#p5">它山石技术架构</a></li>
+  <li><a href="#p2">它山石特色</a></li>  
+  <li><a href="#p4">产品架构</a></li>
+  <li><a href="#p5">技术架构</a></li>
+  <li><a href="#p3">实例展示</a></li>
 </ul>
 
 <div class="container block main" role="main" >
 
 <h2 id="p1">它山石 是什么？</h2>
 <img src="images/1.png" style="float:right; margin-left:10px; margin-bottom:10px; width:400px; height:350px;"/>
-<p>它山石（简称TSS）是一个开源的数据处理引擎，提供在线数据查询、数据分析、数据清洗、数据采集、对外数据服务、数据门户等功能，可全方位管理数据的生成、分析、展示和流通。
+<p>它山石（简称TSS）是一个开源的数据处理引擎，提供在线数据查询、数据分析、数据清洗、数据采集、对外数据服务、数据门户等功能，可全方位管理数据的生成、分析、呈现、感知，及共享。
 </p>
-<p>一个信息化的企业日常活动通常包含人、流程、数据这三个要素。人通过各类应用系统（ERP、CRM、各种行业软件等）发起流程，如销售流程、采购流程等，流程再通过应用系统对数据进行读写。数据随着时间不断沉淀增长，在现今的大数据时代正成为各个公司重要的无形资产。而各个应用系统通常只能分析由自身系统产生的数据，很难有哪个业务系统能全方位、综合性的分析企业的全盘数据。TSS的目的就是要打通人和数据之间的联通，降低挖掘数据价值的难度和成本，让数据可视化，让信息流动起来。正像搜索引擎之于Internet，它山石立志做结构化数据领域的数据处理引擎，挖掘无处不在的沉淀数据以焕发其价值。
+<p>通常一个信息化的企业日常活动包含人、流程、数据这三个要素。人通过各类应用系统（ERP、CRM、各种业务软件）发起流程，如报销流程、采购流程等，流程再通过应用系统对数据进行读写。数据随着时间不断沉淀增长，在现今的大数据时代正成为各个公司重要的无形资产。而各个应用系统通常只会分析由自身系统产生的数据，很难有哪个业务系统能全方位、综合性的分析企业的全盘数据。TSS的目的就是要打通人和数据之间的联通，降低挖掘数据价值的难度和成本，让数据可视化，让数据价值凸显。正像搜索引擎之于Internet，它山石立志做结构化数据领域的数据处理引擎，挖掘无处不在的沉淀数据以焕发其价值。
 </p>
-<p>TSS同时也是一个应用基础平台，通过定制数据录入表单及控制流程，快速的开发业务流程。除此还提供专门的技术框架、功能组件及常见问题解决方案，基于此，能快速、高效、低成本搭建具体业务系统，开发者可以专注于业务逻辑的实现，无需为纷杂多变的各种软件技术而分心。降低开发门槛的同时，也减少了不必要的沟通环节，将通常的软件工程：<b>业务人员-->产品经理-->项目经理-->开发人员-->测试人员</b>，缩减为<b>业务人员-->开发人员</b>，从而最大限度的保证软件的概念完整性和一致性。</p>
+<p>TSS同时也是一个应用基础平台，通过定制数据录入表单及流程控制，快速的开发业务流程。除此还提供专门的技术框架、功能组件及常见问题解决方案，基于此，能快速、高效、低成本搭建具体业务系统，开发者可以专注于业务逻辑的实现，无需为纷杂多变的各种软件技术而分心。降低开发门槛的同时，也减少了不必要的沟通环节，将通常的软件工程：<b>业务人员-->产品经理-->项目经理-->开发人员-->测试人员</b>，缩减为 <b>业务人员<-->二次开发人员 </b>，从而最大限度的保证软件的概念完整性和一致性（通常，环节越多，参与人数增加，曲解需求及做出来的东西不符合最初的设计的概率就会越大）。</p>
 
 <blockquote>
 <b id="p2">它山石特色：</b>
- <br/>1、设计高度模块化，通用灵活，可任意组合复用
- <br/>2、流程、报表、门户、资源，直接在线开发、在线发布
+ <br/>1、设计高度模块化，通用灵活，可组合复用
+ <br/>2、数据表单、流程、权限、报表、门户、栏目内容，直接在线开发、在线发布
  <br/>3、权限模型灵活，对业务对象进行严格的权限控制
  <br/>4、Portal聚合一切、提供统一入口（支持单点登录），实现一站式访问
- <br/>5、前沿的技术：HTML5 移动访问
+ <br/>5、技术前沿：HTML5 移动访问等
 </blockquote>
-
-<h2 id="p3"> 它山石实例展示</h2>
-<div id="movieBox">
-    <div class="btn pre"></div>
-    <div class="btn next"></div>
-    <div class="switchTag">
-      <ul>
-        <li class="active"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
-    <ul class="picUl">
-        <li><h2>时空多维度数据钻取</h2>     <img src="images/tsspic/1.png"/></li>
-        <li><h2>经典地图分布型报表</h2>    <img src="images/tsspic/2.png"/></li>
-        <li><h2>丰富的展示效果</h2>        <img src="images/tsspic/3.png"/></li>
-        <li><h2>数据门户</h2>              <img src="images/tsspic/4.png"/></li>
-        <li><h2>数据提取+图表模板展示</h2> <img src="images/tsspic/5.png"/></li>
-    </ul>
-</div>
-<!--
-<div class="accordian">
-    <ul>
-        <li><h2>时空多维度数据钻取</h2>    <img src="images/tsspic/1.png"/></li>
-        <li><h2>经典地图分布型报表</h2>    <img src="images/tsspic/2.png"/></li>
-        <li><h2>丰富的展示效果</h2>        <img src="images/tsspic/3.png"/></li>
-        <li><h2>数据门户</h2>              <img src="images/tsspic/4.png"/></li>
-        <li><h2>数据提取+图表模板展示</h2> <img src="images/tsspic/5.png"/></li>
-    </ul>
-</div>
--->
-<br/>
 
 <h2 id="p4">它山石产品架构</h2>
 <img src="images/2.png" style="margin-left:100px; margin-bottom:10px;">
@@ -134,7 +101,7 @@ blockquote p {
 
   <ul class="commonList">
     <li>前后端交换一律采用AJAX，数据格式同时支持XML和JSON  </li>
-  	<li>前端使用tssJS框架，提供常用DOM操作、事件处理、AJAX交互、数据处理等核心封装，统一的界面样式布局，及菜单、Tree、Grid、Form、Layout、Panel、Message等常用组件</li>
+  	<li>前端使用tssJS框架，提供常用DOM操作、事件处理、AJAX交互、数据解析等核心封装，统一的界面样式布局，及菜单、Tree、Grid、Form、Layout、Panel、Message等常用组件</li>
     <li>Spring MVC将后端服务发布成restful风格的web服务 </li>
     <li>Spring提供IOC容器及AOP机制，对业务对象的生成、依赖、事务、权限、日志、缓存等进行统一管理</li>
     <li>使用Freemarker作为模板解析引擎，应用于门户、数据图表等支持模板化二次定制开发</li>
@@ -145,27 +112,62 @@ blockquote p {
 
 <blockquote>
 <b>框架特色：</b>
-<br/>1、前后端框架为自主原创，精致、实用、高效、易扩展、易维护
+<br/>1、前后端框架为自主原创，可控、实用、高效、易扩展、易维护
 <br/>2、前后端充分解耦合，开发时前后独立进行、互不依赖
 </blockquote>
 
+
+<h2 id="p3"> 它山石实例展示</h2>
+<div id="movieBox">
+    <div class="btn pre"></div>
+    <div class="btn next"></div>
+    <div class="switchTag">
+      <ul>
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <ul class="picUl">
+        <li><h2>数据报表管理界面</h2>     <img src="images/tsspic/admin-1.jpeg"/></li>
+        <li><h2>数据采集管理界面</h2>     <img src="images/tsspic/admin-2.jpeg"/></li>
+        <li><h2>BI数据门户</h2>         <img src="images/tsspic/bi-portal.jpeg"/></li>
+        <li><h2>订单分布地图</h2>        <img src="images/tsspic/2.png"/></li>
+        <li><h2>快运物流驾驶舱</h2>      <img src="images/tsspic/btrbi-1.png"/></li>
+    </ul>
+</div>
+
+<!--
+<div class="accordian">
+    <ul>
+        <li><h2>时空多维度数据钻取</h2>    <img src="images/tsspic/1.png"/></li>
+        <li><h2>经典地图分布型报表</h2>    <img src="images/tsspic/2.png"/></li>
+        <li><h2>丰富的展示效果</h2>        <img src="images/tsspic/3.png"/></li>
+        <li><h2>数据门户</h2>              <img src="images/tsspic/4.png"/></li>
+        <li><h2>数据提取+图表模板展示</h2> <img src="images/tsspic/5.png"/></li>
+    </ul>
+</div>
+-->
+<br/>
 
 <br>
 <h2>系统质量：可参考<a href="demo/clover/index.html" target="_blank">《它山石代码测试覆盖率》</a></h2>
 
 <h2>Licensed under the <a href="http://www.opensource.org/licenses/gpl-license.php">GPL License</a></h2>
 
-<h2>下载 和 <a href="install.html" target="_blank">安装</a>，获得帮助：<a href="mailTo:llrtss@163.com">llrtss@163.com</a></h2>
+<h2>下载 和 <a href="install.html" target="_blank">安装</a>，获得帮助：<a href="mailTo:boubei@163.com">boubei@163.com</a></h2>
 <div class="downloads" style="margin-bottom:1em">
     <div class="grid">
         <div class="grid-item one-half">
         	<a class="btn btn-secondary btn--full" href="https://github.com/waitwind/jinhe-tss">
-        		当前开发中版本 <span class="subdued">(3.2MB)</span>
+        		当前开发中版本 <span class="subdued">(3.9MB)</span>
         	</a>
         </div>
         <div class="grid-item one-half">
-        	<a class="btn btn-secondary btn--full" href="https://github.com/waitwind/jinhe-tss/archive/3.3.zip">TSS 3.3 （2015夏至版） 
-        		<span class="subdued">(4.3MB)</span>
+        	<a class="btn btn-secondary btn--full" href="https://github.com/waitwind/jinhe-tss/archive/3.3.2.zip">TSS 3.3.2 
+        		<span class="subdued">(3.9MB)</span>
         	</a>
         </div>
     </div>

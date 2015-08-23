@@ -1,0 +1,10 @@
+var clover = new Object();
+
+// JSON: {classes : [{name, id, sl, el,  methods : [{sl, el}, ...]}, ...]}
+clover.pageData = {"classes":[{"el":61,"id":22251,"methods":[{"el":38,"sc":5,"sl":27},{"el":44,"sc":5,"sl":40},{"el":56,"sc":5,"sl":46},{"el":60,"sc":2,"sl":58}],"name":"ThreadPoolCustomizer","sl":23}]}
+
+// JSON: {test_ID : {"methods": [ID1, ID2, ID3...], "name" : "testXXX() void"}, ...};
+clover.testTargets = {"test_141":{"methods":[{"sl":27},{"sl":46},{"sl":58}],"name":"testCacheAction","pass":true,"statements":[{"sl":28},{"sl":29},{"sl":31},{"sl":32},{"sl":33},{"sl":34},{"sl":36},{"sl":37},{"sl":47},{"sl":49},{"sl":50},{"sl":51},{"sl":55},{"sl":59}]},"test_143":{"methods":[{"sl":27}],"name":"test","pass":true,"statements":[{"sl":28},{"sl":29},{"sl":31},{"sl":32},{"sl":33},{"sl":34},{"sl":36},{"sl":37}]},"test_203":{"methods":[{"sl":27}],"name":"testJob","pass":true,"statements":[{"sl":28},{"sl":29},{"sl":31},{"sl":32},{"sl":33},{"sl":34},{"sl":36},{"sl":37}]},"test_213":{"methods":[{"sl":27},{"sl":40}],"name":"testMultiThreadCheckOutAndIn","pass":true,"statements":[{"sl":28},{"sl":29},{"sl":31},{"sl":32},{"sl":33},{"sl":34},{"sl":36},{"sl":37},{"sl":41},{"sl":43}]},"test_218":{"methods":[{"sl":27},{"sl":40},{"sl":46},{"sl":58}],"name":"testThreadPool","pass":true,"statements":[{"sl":28},{"sl":29},{"sl":31},{"sl":32},{"sl":33},{"sl":34},{"sl":36},{"sl":37},{"sl":41},{"sl":43},{"sl":47},{"sl":49},{"sl":50},{"sl":51},{"sl":55},{"sl":59}]}}
+
+// JSON: { lines : [{tests : [testid1, testid2, testid3, ...]}, ...]};
+clover.srcFileLines = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [218, 143, 213, 203, 141], [218, 143, 213, 203, 141], [218, 143, 213, 203, 141], [], [218, 143, 213, 203, 141], [218, 143, 213, 203, 141], [218, 143, 213, 203, 141], [218, 143, 213, 203, 141], [], [218, 143, 213, 203, 141], [218, 143, 213, 203, 141], [], [], [218, 213], [218, 213], [], [218, 213], [], [], [218, 141], [218, 141], [], [218, 141], [218, 141], [218, 141], [], [], [], [218, 141], [], [], [218, 141], [218, 141], [], [], []]
